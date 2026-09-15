@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/nocturne-a7774f26-2365-4013-bd75-edb445f165b8/styles.css">
+<script src="_ds/nocturne-a7774f26-2365-4013-bd75-edb445f165b8/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: var(--color-bg); }
+  a { color: var(--color-accent); text-decoration: none; }
+  a:hover { color: var(--color-accent-300); }
+  ::selection { background: var(--color-accent-800); }
+  @keyframes noct-rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @keyframes noct-slide { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
+  @keyframes noct-fade { from { opacity: 0; } to { opacity: 1; } }
+</style>
+</helmet>
+
+<div style="min-height: 100vh; background: radial-gradient(1100px 520px at 12% -10%, #22243a 0%, transparent 70%), var(--color-bg); color: var(--color-text); font-family: var(--font-body); font-size: 15px; line-height: 1.55;">
+
+  <div style="display: flex; align-items: center; gap: 22px; padding: 20px 28px; max-width: 1120px; margin: 0 auto; flex-wrap: wrap;">
+    <div onClick="{{ goHome }}" style="font-family: var(--font-heading); font-weight: 500; font-size: 17px; margin-right: auto; cursor: pointer; letter-spacing: -0.01em;">Ben Lubetzky</div>
+    <div onClick="{{ goHome }}" style="font-size: 13px; letter-spacing: 0.04em; color: #a2a4b4; cursor: pointer;" style-hover="color: var(--color-text);">Home</div>
+    <div onClick="{{ goProjects }}" style="font-size: 13px; letter-spacing: 0.04em; color: #a2a4b4; cursor: pointer;" style-hover="color: var(--color-text);">Projects</div>
+    <div onClick="{{ openResume }}" style="font-size: 13px; letter-spacing: 0.04em; color: #a2a4b4; cursor: pointer;" style-hover="color: var(--color-text);">Résumé</div>
+    <a href="mailto:b0508181058@gmail.com" class="btn btn-primary" style="font-size: 13px;">Get in touch</a>
+  </div>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <div style="max-width: 1120px; margin: 0 auto; padding: 0 28px 96px;">
+
+    <div style="display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr); gap: 56px; align-items: center; padding: 56px 0 72px;">
+      <div style="animation: noct-rise 620ms ease both;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-300); margin-bottom: 20px;">
+          <span style="width: 22px; height: 1px; background: var(--color-accent); display: block;"></span>
+          Machine learning · Frontend · Backend
+        </div>
+        <h1 style="font-size: clamp(38px, 5.4vw, 62px); line-height: 1.04; letter-spacing: -0.03em; margin: 0 0 22px; max-width: 16ch;">Ben Lubetzky</h1>
+        <p style="font-size: 17px; line-height: 1.6; color: #c3c5d2; max-width: 56ch; margin: 0 0 14px; text-wrap: pretty;">Third-year CS student at the University of Porto building full-stack and ML-driven systems — from RAG pipelines and agentic tools to production-style web apps with FastAPI and Next.js.</p>
+        <p style="font-size: 17px; line-height: 1.6; color: #c3c5d2; max-width: 56ch; margin: 0 0 32px; text-wrap: pretty;">Looking for an internship in frontend, backend, full-stack, or ML engineering.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+          <div onClick="{{ goProjects }}" class="btn btn-primary" style="font-size: 14px; padding: 10px 20px;">View all projects →</div>
+          <div onClick="{{ openResume }}" class="btn btn-primary" style="font-size: 14px; padding: 10px 20px; cursor: pointer;">View résumé</div>
+        </div>
+      </div>
+      <div style="animation: noct-fade 900ms ease both;">
+        <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+          <img src="assets/ben.png" alt="Ben Lubetzky" style="width: 100%; height: auto; display: block; filter: saturate(0.92) contrast(1.02);">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,24,38,0) 48%, rgba(22,24,38,0.55) 100%); pointer-events: none;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 40px; padding: 40px 0; border-top: 1px solid #2c2f3d;">
+      <h2 style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8d90a1; margin: 0;">Tech stack</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 28px;">
+        <sc-for list="{{ stack }}" as="group" hint-placeholder-count="3">
+          <div>
+            <div style="font-family: var(--font-heading); font-size: 15px; margin-bottom: 12px;">{{ group.label }}</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+              <sc-for list="{{ group.items }}" as="item" hint-placeholder-count="5">
+                <span class="tag" style="font-size: 11px; background: var(--color-accent-900); color: var(--color-accent-200); border: 1px solid var(--color-accent-800);">{{ item }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="padding: 40px 0 0; border-top: 1px solid #2c2f3d;">
+      <div style="display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap; margin-bottom: 26px;">
+        <h2 style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8d90a1; margin: 0; width: 180px;">Selected work</h2>
+        <div onClick="{{ goProjects }}" class="btn btn-ghost" style="font-size: 13px; cursor: pointer;">All projects →</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 16px;">
+        <sc-for list="{{ featured }}" as="p" hint-placeholder-count="3">
+          <div onClick="{{ p.open }}" style="display: flex; flex-direction: column; gap: 10px; padding: 22px; border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 180ms ease, box-shadow 180ms ease;" style-hover="transform: translateY(-3px); box-shadow: var(--shadow-md);">
+            <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-300);">{{ p.kicker }}</div>
+            <div style="font-family: var(--font-heading); font-size: 19px; letter-spacing: -0.01em;">{{ p.name }}</div>
+            <div style="font-size: 14px; line-height: 1.55; color: #b4b7c5; text-wrap: pretty;">{{ p.tagline }}</div>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px;">
+              <sc-for list="{{ p.topStack }}" as="s" hint-placeholder-count="3">
+                <span class="tag tag-accent" style="font-size: 10px;">{{ s }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-top: 56px; padding: 40px 0; border-top: 1px solid #2c2f3d;">
+      <div>
+        <h2 style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8d90a1; margin: 0 0 20px;">Education</h2>
+        <sc-for list="{{ education }}" as="e" hint-placeholder-count="2">
+          <div style="margin-bottom: 20px;">
+            <div style="font-family: var(--font-heading); font-size: 16px;">{{ e.degree }}</div>
+            <div style="font-size: 14px; color: #b4b7c5;">{{ e.school }}</div>
+            <div style="font-size: 13px; color: #8d90a1;">{{ e.dates }}</div>
+          </div>
+        </sc-for>
+      </div>
+      <div>
+        <h2 style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8d90a1; margin: 0 0 20px;">Languages</h2>
+        <div style="display: flex; flex-direction: column; gap: 10px; max-width: 320px;">
+          <sc-for list="{{ languages }}" as="l" hint-placeholder-count="5">
+            <div style="display: flex; justify-content: space-between; gap: 16px; font-size: 14px; padding-bottom: 8px; border-bottom: 1px solid #262936;">
+              <span>{{ l.name }}</span>
+              <span style="color: #8d90a1;">{{ l.level }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 40px; padding: 40px 0 0; border-top: 1px solid #2c2f3d;">
+      <h2 style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8d90a1; margin: 0;">Contact</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px 34px; font-size: 15px;">
+        <a href="mailto:b0508181058@gmail.com" style="display: inline-flex; align-items: center; gap: 8px; color: #c9cbd7;" style-hover="color: var(--color-text);"><span>✉</span>b0508181058@gmail.com</a>
+        <a href="tel:+351937217775" style="display: inline-flex; align-items: center; gap: 8px; color: #c9cbd7;" style-hover="color: var(--color-text);"><span>📞</span>+351 937 217 775</a>
+        <span style="display: inline-flex; align-items: center; gap: 8px; color: #c9cbd7;"><span>📍</span>Porto, Portugal</span>
+        <a href="https://github.com/BenLubetzky" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: #c9cbd7;" style-hover="color: var(--color-text);"><span>🐙</span>github.com/BenLubetzky</a>
+        <a href="https://linkedin.com/in/ben-lubetzky-51782742a" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: #c9cbd7;" style-hover="color: var(--color-text);"><span>🔗</span>LinkedIn</a>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isProjects }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width: 1120px; margin: 0 auto; padding: 44px 28px 96px; animation: noct-fade 400ms ease both;">
+    <div onClick="{{ goHome }}" style="font-size: 13px; color: #8d90a1; cursor: pointer; margin-bottom: 26px;" style-hover="color: var(--color-text);">← Back to home</div>
+    <h1 style="font-size: clamp(32px, 4.4vw, 48px); letter-spacing: -0.03em; margin: 0 0 14px;">Projects</h1>
+    <p style="font-size: 16px; color: #b4b7c5; max-width: 60ch; margin: 0 0 40px; text-wrap: pretty;">Personal projects, built end to end. Select one to read the problem, architecture and the decisions behind it.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
+      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+        <div onClick="{{ p.open }}" style="display: flex; flex-direction: column; gap: 12px; padding: 26px; border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 180ms ease, box-shadow 180ms ease;" style-hover="transform: translateY(-3px); box-shadow: var(--shadow-md);">
+          <sc-if value="{{ p.hasThumb }}" hint-placeholder-val="{{ false }}">
+            <div role="img" aria-label="{{ p.name }}" style="border-radius: var(--radius-sm); height: 148px; background-color: var(--color-neutral-900); background-image: url({{ p.thumb }}); background-size: cover; background-position: top left; box-shadow: var(--shadow-sm); margin-bottom: 4px;"></div>
+          </sc-if>
+          <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px;">
+            <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-300);">{{ p.kicker }}</div>
+            <div style="font-size: 12px; color: #8d90a1;">{{ p.year }}</div>
+          </div>
+          <div style="font-family: var(--font-heading); font-size: 21px; letter-spacing: -0.015em;">{{ p.name }}</div>
+          <div style="font-size: 14px; line-height: 1.6; color: #b4b7c5; text-wrap: pretty;">{{ p.tagline }}</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px;">
+            <sc-for list="{{ p.stack }}" as="s" hint-placeholder-count="5">
+              <span class="tag tag-outline" style="font-size: 10px;">{{ s }}</span>
+            </sc-for>
+          </div>
+          <div style="font-size: 13px; color: var(--color-accent-300); margin-top: 8px;">Read more →</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ showResume }}" hint-placeholder-val="{{ false }}">
+  <div style="position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 24px; background: rgba(12,13,22,0.74); animation: noct-fade 220ms ease both;">
+    <div onClick="{{ closeResume }}" style="position: absolute; inset: 0;"></div>
+    <div style="position: relative; width: min(1000px, 100%); height: min(94vh, 100%); display: flex; flex-direction: column; border-radius: var(--radius-lg); overflow: hidden; background: var(--color-surface); box-shadow: var(--shadow-lg); animation: noct-rise 280ms ease both;">
+      <div style="display: flex; align-items: center; gap: 12px; padding: 14px 20px; border-bottom: 1px solid #2f3240;">
+        <div style="font-family: var(--font-heading); font-size: 16px; margin-right: auto;">Résumé — Ben Lubetzky</div>
+        <div onClick="{{ downloadResume }}" class="btn btn-primary" style="font-size: 13px; cursor: pointer;">Download PDF</div>
+        <div onClick="{{ closeResume }}" class="btn btn-secondary" style="font-size: 13px; cursor: pointer;">Close ✕</div>
+      </div>
+      <div ref="{{ resumeFrame }}" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; align-items: center; gap: 18px; padding: 22px; background: var(--color-neutral-900);">
+        <div style="font-size: 13px; color: #8d90a1; padding: 24px;">Loading résumé…</div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ hasSelection }}" hint-placeholder-val="{{ false }}">
+  <div style="position: fixed; inset: 0; z-index: 40; display: flex; justify-content: flex-end;">
+    <div onClick="{{ close }}" style="position: absolute; inset: 0; background: rgba(12,13,22,0.66); backdrop-filter: blur(2px); animation: noct-fade 220ms ease both;"></div>
+    <div style="position: relative; width: min(680px, 100%); height: 100%; overflow-y: auto; background: var(--color-surface); box-shadow: var(--shadow-lg); animation: noct-slide 300ms cubic-bezier(0.22,0.61,0.36,1) both;">
+      <div style="position: sticky; top: 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 34px; background: color-mix(in srgb, var(--color-surface) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid #2f3240;">
+        <div style="font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-300);">{{ selected.kicker }}</div>
+        <div onClick="{{ close }}" class="btn btn-secondary" style="font-size: 13px; cursor: pointer;">Close ✕</div>
+      </div>
+      <div style="padding: 30px 34px 56px;">
+        <h2 style="font-size: 32px; letter-spacing: -0.025em; margin: 0 0 12px;">{{ selected.name }}</h2>
+        <p style="font-size: 16px; line-height: 1.6; color: #c3c5d2; margin: 0 0 22px; text-wrap: pretty;">{{ selected.tagline }}</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 26px;">
+          <sc-for list="{{ selected.stack }}" as="s" hint-placeholder-count="6">
+            <span class="tag tag-accent" style="font-size: 11px;">{{ s }}</span>
+          </sc-for>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 22px; margin-bottom: 8px;">
+          <sc-for list="{{ selected.images }}" as="img" hint-placeholder-count="0">
+            <figure style="margin: 0;">
+              <div role="img" aria-label="{{ img.caption }}" style="border-radius: var(--radius-md); width: 100%; aspect-ratio: {{ img.ratio }}; background-color: var(--color-neutral-900); background-image: url({{ img.src }}); background-size: cover; background-position: top center; box-shadow: var(--shadow-sm);"></div>
+              <figcaption style="font-size: 13px; line-height: 1.5; margin-top: 10px; color: #9a9dac; text-wrap: pretty;">{{ img.caption }}</figcaption>
+            </figure>
+          </sc-for>
+        </div>
+
+        <sc-for list="{{ selected.sections }}" as="sec" hint-placeholder-count="4">
+          <div style="padding: 22px 0; border-top: 1px solid #2f3240;">
+            <h3 style="font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8d90a1; margin: 0 0 14px;">{{ sec.title }}</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <sc-for list="{{ sec.items }}" as="line" hint-placeholder-count="3">
+                <div style="display: grid; grid-template-columns: 14px minmax(0, 1fr); gap: 12px; font-size: 15px; line-height: 1.62; color: #ccced9;">
+                  <span style="color: var(--color-accent); line-height: 1.62;">—</span>
+                  <span style="text-wrap: pretty;">{{ line }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+
+        <div style="padding: 24px 0 0; border-top: 1px solid #2f3240; display: flex; gap: 12px; flex-wrap: wrap;">
+          <sc-for list="{{ selected.links }}" as="l" hint-placeholder-count="2">
+            <a href="{{ l.url }}" target="_blank" class="btn btn-primary" style="font-size: 13px; padding: 9px 18px;">{{ l.label }}</a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1280}}">
+const PROJECTS = [
+  {
+    id: "ledgerdrop",
+    name: "LedgerDrop",
+    kicker: "Full-stack · Document AI",
+    year: "2025",
+    tagline: "Invoice-processing web app: an async upload pipeline on FastAPI and SQLAlchemy, a Next.js frontend, and a designed path through extraction, validation and human review.",
+    images: [{ src: "assets/ledgerdrop-upload.png", ratio: "1500 / 895", caption: "The invoice workspace: drop zone with format limits on the left, recent uploads and their processing state on the right, review queue one click away." }],
+    stack: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "Next.js", "TypeScript", "Docker"],
+    sections: [
+      { title: "Problem", items: [
+        "Invoices arrive as PDFs and scans in no fixed format, and the data that matters — supplier, dates, line items, totals — has to end up in a database that can be trusted.",
+        "Fully automatic extraction is never fully correct, so the app is built around review rather than pretending the model is always right."
+      ]},
+      { title: "Architecture", items: [
+        "FastAPI service with an async upload endpoint: the file is stored, a processing job is queued, and the client polls job status instead of blocking on the request.",
+        "Extraction, validation and review are separate stages, each writing its own state to the document record, so a document's position in the pipeline is always explicit.",
+        "PostgreSQL through SQLAlchemy with Alembic migrations for schema changes; Docker Compose runs API, database and frontend together.",
+        "Next.js and TypeScript frontend: upload, a queue view of documents by state, and a review screen pairing extracted fields with the source document."
+      ]},
+      { title: "Decisions", items: [
+        "Status-driven job model over a long-running request, so a slow or failed extraction never takes the upload down with it.",
+        "Validation rules run before a human sees a document, so review is spent on genuine ambiguity rather than arithmetic.",
+        "Every extracted field keeps its origin, which makes a correction traceable instead of silently overwriting the model's output."
+      ]},
+      { title: "Status", items: [
+        "Running as a staging deployment with the full upload → extract → validate → review path working end to end."
+      ]}
+    ],
+    links: [
+      { label: "Live staging app", url: "https://ledgerdrop-frontend-staging.onrender.com/" },
+      { label: "GitHub", url: "https://github.com/BenLubetzky/LedgeDrop" }
+    ]
+  },
+  {
+    id: "support-agent",
+    name: "Customer Support Agent",
+    kicker: "LLM systems · Agents",
+    year: "2025",
+    tagline: "Agentic retail-support assistant with policy RAG, tool calling, identity checks, guarded order actions and human escalation.",
+    images: [{ src: "assets/support-demo.png", ratio: "1840 / 972", caption: "The demo harness: preloaded scenarios on the left — cancel a processing order, refuse a cancellation after shipping, refund under the limit, escalate a refund over €500 — each running against the live chat on the right." }],
+    stack: ["Python", "FastAPI", "RAG", "Tool calling", "ChromaDB", "SQLite"],
+    sections: [
+      { title: "Problem", items: [
+        "A support assistant that only talks is of limited use; one that can act on orders is useful but dangerous. The interesting part is letting it act while keeping the actions safe.",
+        "Answers about returns, shipping and refunds have to come from the shop's actual policy, not from the model's general impression of how retail works."
+      ]},
+      { title: "Architecture", items: [
+        "FastAPI backend holding the conversation loop: the model receives the user turn plus retrieved policy passages and chooses between answering and calling a tool.",
+        "Policy RAG over a ChromaDB collection of the shop's policy documents; retrieved passages are what the answer is grounded in.",
+        "Order data in SQLite behind a small set of typed tools — look up an order, check eligibility, start a return — rather than free database access.",
+        "Identity check before any order-specific action, and an escalation path that hands the thread to a human with the conversation context attached."
+      ]},
+      { title: "Decisions", items: [
+        "Guarded tools instead of a general SQL tool: the agent can only do things the API already considers legal.",
+        "Read actions are free, write actions require verified identity and an explicit confirmation turn.",
+        "Escalate on low retrieval confidence or a refused guard rather than letting the model improvise a policy."
+      ]},
+      { title: "Status", items: [
+        "Deployed and usable in the browser; the demo covers order lookup, returns, policy questions and escalation."
+      ]}
+    ],
+    links: [
+      { label: "Live demo", url: "https://customer-support-assistant-28ki.onrender.com/" },
+      { label: "GitHub", url: "https://github.com/BenLubetzky/Customer_support_assistant" }
+    ]
+  },
+  {
+    id: "paper-assistant",
+    name: "Research Paper Assistant",
+    kicker: "RAG · Retrieval",
+    year: "2025",
+    tagline: "Local RAG pipeline over computer-vision papers: structure-aware chunking, hybrid retrieval, metadata reranking and grounded, cited answers.",
+    images: [{ src: "assets/paper-assistant.png", ratio: "1901 / 892", caption: "Ask a question across the paper library — here \u201cWhat loss and matching strategy does DETR use?\u201d — and the answer comes back grounded in retrieved passages." }],
+    stack: ["Python", "FastAPI", "Hybrid retrieval", "Embeddings", "ChromaDB", "PDF chunking"],
+    sections: [
+      { title: "Problem", items: [
+        "Papers break naive chunking: a fixed window cuts through equations, tables and figure captions, and the retrieved fragment then answers nothing.",
+        "For research questions a plausible answer is worthless without the passage it came from."
+      ]},
+      { title: "Architecture", items: [
+        "PDF ingestion that follows document structure — sections, captions, references — so a chunk is a coherent unit of the paper rather than a fixed number of tokens.",
+        "Hybrid retrieval combining dense embeddings with keyword search, which keeps exact terms like model and dataset names findable.",
+        "Reranking on chunk metadata (section, paper, position) before the context window is assembled.",
+        "Answers are composed only from retrieved passages and returned with citations back to paper and section; the whole pipeline runs locally over a personal paper library."
+      ]},
+      { title: "Decisions", items: [
+        "Hybrid over dense-only retrieval: architecture names and metrics are the queries that matter most and they are lexical.",
+        "Structure-aware chunking over sliding windows, at the cost of a slower and more fragile ingestion step.",
+        "No answer without a citation — if retrieval comes back empty, the system says so."
+      ]},
+      { title: "Status", items: [
+        "Runs locally over a collection of computer-vision papers; source on GitHub."
+      ]}
+    ],
+    links: [{ label: "GitHub", url: "https://github.com/BenLubetzky/Computer_Vision_Paper_Research_Assistant" }]
+  },
+  {
+    id: "arcface",
+    name: "ArcFace Face Recognition",
+    kicker: "Computer vision · From the paper",
+    year: "2024",
+    tagline: "Closed-set face identification on LFW with a pretrained ResNet-50 backbone and additive angular-margin loss.",
+    images: [{ src: "assets/arcface-predictions.png", ratio: "1541 / 582", caption: "Evaluation output on held-out LFW faces: true identity against the model's top-5 predictions with their confidences." }],
+    stack: ["Python", "PyTorch", "Torchvision", "ResNet-50", "Angular-margin loss", "scikit-learn"],
+    sections: [
+      { title: "Problem", items: [
+        "Identification needs embeddings that separate identities, not just a classifier that fits the training split. Plain softmax gives features that cluster loosely and generalise poorly.",
+        "Built from the ArcFace paper and reference implementations to understand why the angular margin changes the geometry of the embedding space."
+      ]},
+      { title: "Architecture", items: [
+        "ResNet-50 from Torchvision, pretrained, with the classifier head replaced by an embedding layer and an ArcFace margin head.",
+        "Additive angular-margin loss on normalised features and weights, so classes are separated by angle on a hypersphere rather than by raw logit distance.",
+        "LFW pipeline: aligned crops, augmentation, a closed-set identity split, and transfer learning with a staged unfreezing of the backbone.",
+        "Evaluation with scikit-learn on held-out identities, plus embedding-space inspection to see the margin taking effect."
+      ]},
+      { title: "Decisions", items: [
+        "Transfer learning over training from scratch — LFW is far too small for a ResNet-50 to learn faces unaided.",
+        "Closed-set identification to keep the evaluation honest and interpretable rather than reporting a verification threshold.",
+        "Margin and scale treated as the experiment: the comparison against a plain softmax head is the point of the project."
+      ]},
+      { title: "Status", items: [
+        "Complete as a study project; training and evaluation code on GitHub."
+      ]}
+    ],
+    links: [{ label: "GitHub", url: "https://github.com/BenLubetzky/face_recognition_arcface" }]
+  },
+  {
+    id: "spanish-site",
+    name: "Spanish Learning Website",
+    kicker: "Frontend · Web app",
+    year: "",
+    tagline: "A spaced-repetition Spanish trainer: decks of words and sentences, typed recall in both directions, pronunciation playback, and progress that lives in the browser.",
+    images: [
+      { src: "assets/spanish-decks.png", ratio: "1880 / 778", caption: "Deck picker and the card preview \u2014 word or sentence on the front, translation on the back." },
+      { src: "assets/spanish-study.png", ratio: "1897 / 903", caption: "Study session: type the translation, switch direction between ES\u2192EN and EN\u2192ES, reveal the card, or play the pronunciation." },
+      { src: "assets/spanish-progress.png", ratio: "1871 / 882", caption: "Progress: cards reviewed against the daily target, current streak, retention for the day, and what is due across decks." },
+      { src: "assets/spanish-settings.png", ratio: "1870 / 887", caption: "Settings: appearance, daily card target and pronunciation voice, plus CSV import and JSON backup of the collection." }
+    ],
+    stack: ["JavaScript", "Spaced repetition", "Speech synthesis", "Local storage"],
+    sections: [
+      { title: "Problem", items: [
+        "Vocabulary sticks through short, frequent recall rather than long sessions, so the app has to make a few minutes of practice frictionless and keep the schedule for you.",
+        "Built for one reader first, which set the tone: gentle targets, a visible streak, and no account to create."
+      ]},
+      { title: "Architecture", items: [
+        "Four screens \u2014 decks, study, progress, settings \u2014 over a single local collection of cards.",
+        "Study grades each answer by typed recall, in either direction, and feeds the grade back into when the card is next due.",
+        "Pronunciation through the browser's speech synthesis, with a selectable voice.",
+        "All state in browser storage, with CSV import and a full JSON backup so the collection survives a cleared browser."
+      ]},
+      { title: "Decisions", items: [
+        "Typing the translation over multiple choice: recall, not recognition.",
+        "No backend \u2014 the collection is personal, so local storage plus an export is enough, and the app stays deployable as static files."
+      ]}
+    ],
+    links: [{ label: "GitHub", url: "https://github.com/BenLubetzky/Spanish-Learning-Website" }]
+  },
+  {
+    id: "car-detection",
+    name: "Car Detection (YOLO)",
+    kicker: "Computer vision · Detection",
+    year: "",
+    tagline: "Object detection on road imagery with a YOLO model: dataset preparation, training and evaluation of detections.",
+    images: [{ src: "assets/car-detection.png", ratio: "612 / 340", caption: "Predicted boxes (red) against ground truth (blue) with confidence scores, including small and partly occluded cars at the edge of the frame." }],
+    stack: ["Python", "YOLO", "Object detection", "Jupyter"],
+    sections: [
+      { title: "Problem", items: [
+        "Detection, unlike classification, has to localise every vehicle in the frame and survive scale, occlusion and clutter."
+      ]},
+      { title: "Architecture", items: [
+        "Annotated dataset prepared in YOLO format, training on a pretrained YOLO backbone, then evaluation on held-out images with the predicted boxes drawn back onto the frames."
+      ]}
+    ],
+    links: [{ label: "GitHub", url: "https://github.com/BenLubetzky/car_detection" }]
+  },
+  {
+    id: "brain-mri",
+    name: "Brain MRI Tumor Detection",
+    kicker: "Computer vision · Medical imaging",
+    year: "",
+    tagline: "Tumor detection and classification on brain MRI scans using transfer learning across multiple pretrained models.",
+    stack: ["Python", "Transfer learning", "CNNs", "Jupyter"],
+    sections: [
+      { title: "Problem", items: [
+        "Medical imaging datasets are small, so a model trained from scratch overfits; the question is which pretrained backbone transfers best to MRI."
+      ]},
+      { title: "Architecture", items: [
+        "Several pretrained CNN backbones fine-tuned on the same MRI dataset and compared on the same held-out split, with preprocessing and augmentation shared across runs."
+      ]}
+    ],
+    links: [{ label: "GitHub", url: "https://github.com/BenLubetzky/brainMRI_tumor_detection" }]
+  }
+];
+
+class Component extends DCLogic {
+  state = { view: "home", selectedId: null, showResume: false };
+
+  componentDidMount() {
+    this._key = (e) => { if (e.key === "Escape") this.setState({ selectedId: null, showResume: false }); };
+    window.addEventListener("keydown", this._key);
+  }
+  componentWillUnmount() { window.removeEventListener("keydown", this._key); }
+
+  select(id) { this.setState({ selectedId: id }); }
+
+  loadResume() {
+    if (this._loadingPdf) return;
+    this._loadingPdf = true;
+    fetch("uploads/resume.pdf")
+      .then((r) => { if (!r.ok) throw new Error(r.status); return r.blob(); })
+      .then(async (b) => {
+        const bytes = new Uint8Array(await b.arrayBuffer());
+        this.setState({ pdfUrl: URL.createObjectURL(new Blob([bytes], { type: "application/pdf" })) });
+        const pdfjs = await import("https://cdn.jsdelivr.net/npm/pdfjs-dist@4.7.76/build/pdf.min.mjs");
+        pdfjs.GlobalWorkerOptions.workerSrc = "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.7.76/build/pdf.worker.min.mjs";
+        this._pdf = await pdfjs.getDocument({ data: bytes }).promise;
+        this.renderPdf();
+      })
+      .catch((e) => { this._loadingPdf = false; this.setState({ pdfError: true }); });
+  }
+
+  async renderPdf() {
+    const host = this._frame && this._frame.current;
+    if (!host || !this._pdf || host.dataset.rendered === "1") return;
+    host.dataset.rendered = "1";
+    host.innerHTML = "";
+    const width = Math.min(host.clientWidth - 44, 900);
+    for (let i = 1; i <= this._pdf.numPages; i++) {
+      const page = await this._pdf.getPage(i);
+      const base = page.getViewport({ scale: 1 });
+      const scale = (width / base.width) * Math.min(window.devicePixelRatio || 1, 2);
+      const viewport = page.getViewport({ scale });
+      const canvas = document.createElement("canvas");
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      canvas.style.width = width + "px";
+      canvas.style.height = Math.round(base.height * (width / base.width)) + "px";
+      canvas.style.borderRadius = "6px";
+      canvas.style.boxShadow = "0 8px 24px rgba(0,0,0,0.5)";
+      host.appendChild(canvas);
+      await page.render({ canvasContext: canvas.getContext("2d"), viewport }).promise;
+    }
+  }
+
+  componentDidUpdate() { if (this.state.showResume) this.renderPdf(); }
+
+  renderVals() {
+    const withOpen = (p) => ({
+      ...p,
+      topStack: p.stack.slice(0, 3),
+      images: p.images || [],
+      hasThumb: !!(p.images && p.images.length),
+      thumb: p.images && p.images.length ? p.images[0].src : "",
+      open: () => this.select(p.id)
+    });
+    const projects = PROJECTS.map(withOpen);
+    const selected = PROJECTS.find((p) => p.id === this.state.selectedId) || null;
+    return {
+      isHome: this.state.view === "home",
+      isProjects: this.state.view === "projects",
+      goHome: () => this.setState({ view: "home", selectedId: null }),
+      goProjects: () => this.setState({ view: "projects", selectedId: null }),
+      close: () => this.setState({ selectedId: null }),
+      showResume: !!this.state.showResume,
+      resumeFrame: this._frame || (this._frame = React.createRef()),
+      openResume: () => { this.setState({ showResume: true }); this.loadResume(); },
+      closeResume: () => this.setState({ showResume: false }),
+      downloadResume: () => {
+        if (!this.state.pdfUrl) return;
+        const a = document.createElement("a");
+        a.href = this.state.pdfUrl;
+        a.download = "Ben-Lubetzky-Resume.pdf";
+        a.click();
+      },
+      openResumeTab: () => { if (this.state.pdfUrl) window.open(this.state.pdfUrl, "_blank"); },
+      projects,
+      featured: projects.slice(0, 3),
+      hasSelection: !!selected,
+      selected: selected ? { ...selected, images: selected.images || [] } : { sections: [], stack: [], links: [], images: [] },
+      stack: [
+        { label: "Languages", items: ["Python", "TypeScript", "JavaScript", "SQL"] },
+        { label: "ML, vision & LLMs", items: ["PyTorch", "Torchvision", "scikit-learn", "NumPy", "CNNs", "Transfer learning", "Embeddings", "OpenAI API", "RAG", "ChromaDB"] },
+        { label: "Backend, frontend & tooling", items: ["FastAPI", "REST", "SQLAlchemy", "PostgreSQL", "Next.js", "React", "Docker", "Git", "pytest"] }
+      ],
+      education: [
+        { degree: "BSc Computer Science", school: "University of Porto (FCUP)", dates: "2024–present, third year" },
+        { degree: "BSc Computer Science coursework", school: "Open University of Israel", dates: "2023–2024" }
+      ],
+      languages: [
+        { name: "Hebrew", level: "Native" },
+        { name: "English", level: "Native" },
+        { name: "Portuguese", level: "C1" },
+        { name: "French", level: "B1" },
+        { name: "Spanish", level: "B1" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
