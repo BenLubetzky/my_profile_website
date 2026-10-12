@@ -41,11 +41,11 @@
       <div style="animation: noct-rise 620ms ease both;">
         <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent-300); margin-bottom: 20px;">
           <span style="width: 22px; height: 1px; background: var(--color-accent); display: block;"></span>
-          Machine learning · Frontend · Backend
+          Junior full stack developer
         </div>
         <h1 style="font-size: clamp(38px, 5.4vw, 62px); line-height: 1.04; letter-spacing: -0.03em; margin: 0 0 22px; max-width: 16ch;">Ben Lubetzky</h1>
-        <p style="font-size: 17px; line-height: 1.6; color: #c3c5d2; max-width: 56ch; margin: 0 0 14px; text-wrap: pretty;">Third-year CS student at the University of Porto building full-stack and ML-driven systems — from RAG pipelines and agentic tools to production-style web apps with FastAPI and Next.js.</p>
-        <p style="font-size: 17px; line-height: 1.6; color: #c3c5d2; max-width: 56ch; margin: 0 0 32px; text-wrap: pretty;">Looking for an internship in frontend, backend, full-stack, or ML engineering.</p>
+        <p style="font-size: 17px; line-height: 1.6; color: #c3c5d2; max-width: 56ch; margin: 0 0 14px; text-wrap: pretty;">Computer Science student at the University of Porto who builds and deploys web apps end to end — Next.js frontends, FastAPI backends, PostgreSQL — and wires in AI features through LLM APIs, RAG and embeddings where they earn their place.</p>
+        <p style="font-size: 17px; line-height: 1.6; color: #c3c5d2; max-width: 56ch; margin: 0 0 32px; text-wrap: pretty;">Looking for a junior full stack role — available immediately.</p>
         <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
           <div onClick="{{ goProjects }}" class="btn btn-primary" style="font-size: 14px; padding: 10px 20px;">View all projects →</div>
           <div onClick="{{ openResume }}" class="btn btn-primary" style="font-size: 14px; padding: 10px 20px; cursor: pointer;">View résumé</div>
@@ -104,6 +104,9 @@
             <div style="font-family: var(--font-heading); font-size: 16px;">{{ e.degree }}</div>
             <div style="font-size: 14px; color: #b4b7c5;">{{ e.school }}</div>
             <div style="font-size: 13px; color: #8d90a1;">{{ e.dates }}</div>
+            <sc-if value="{{ e.note }}" hint-placeholder-val="{{ false }}">
+              <div style="font-size: 13px; color: #8d90a1; margin-top: 4px; text-wrap: pretty;">{{ e.note }}</div>
+            </sc-if>
           </div>
         </sc-for>
       </div>
@@ -137,9 +140,10 @@
   <div style="max-width: 1120px; margin: 0 auto; padding: 44px 28px 96px; animation: noct-fade 400ms ease both;">
     <div onClick="{{ goHome }}" style="font-size: 13px; color: #8d90a1; cursor: pointer; margin-bottom: 26px;" style-hover="color: var(--color-text);">← Back to home</div>
     <h1 style="font-size: clamp(32px, 4.4vw, 48px); letter-spacing: -0.03em; margin: 0 0 14px;">Projects</h1>
-    <p style="font-size: 16px; color: #b4b7c5; max-width: 60ch; margin: 0 0 40px; text-wrap: pretty;">Personal projects, built end to end. Select one to read the problem, architecture and the decisions behind it.</p>
+    <p style="font-size: 16px; color: #b4b7c5; max-width: 60ch; margin: 0 0 40px; text-wrap: pretty;">Web apps built and deployed end to end — frontend, API, database and the AI features on top. Select one to read the problem, architecture and the decisions behind it.</p>
+    <h2 style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8d90a1; margin: 0 0 18px;">Full stack &amp; web</h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
-      <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+      <sc-for list="{{ webProjects }}" as="p" hint-placeholder-count="4">
         <div onClick="{{ p.open }}" style="display: flex; flex-direction: column; gap: 12px; padding: 26px; border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 180ms ease, box-shadow 180ms ease;" style-hover="transform: translateY(-3px); box-shadow: var(--shadow-md);">
           <sc-if value="{{ p.hasThumb }}" hint-placeholder-val="{{ false }}">
             <div role="img" aria-label="{{ p.name }}" style="border-radius: var(--radius-sm); height: 148px; background-color: var(--color-neutral-900); background-image: url({{ p.thumb }}); background-size: cover; background-position: top left; box-shadow: var(--shadow-sm); margin-bottom: 4px;"></div>
@@ -158,6 +162,20 @@
           <div style="font-size: 13px; color: var(--color-accent-300); margin-top: 8px;">Read more →</div>
         </div>
       </sc-for>
+    </div>
+
+    <div style="margin-top: 64px; padding-top: 36px; border-top: 1px solid #2c2f3d;">
+      <h2 style="font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #8d90a1; margin: 0 0 8px;">Earlier work · machine learning</h2>
+      <p style="font-size: 14px; color: #8d90a1; max-width: 60ch; margin: 0 0 18px; text-wrap: pretty;">Study projects in deep learning and computer vision — the background behind the AI features in my web apps.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+        <sc-for list="{{ mlProjects }}" as="p" hint-placeholder-count="4">
+          <div onClick="{{ p.open }}" style="display: flex; flex-direction: column; gap: 8px; padding: 18px; border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); cursor: pointer; transition: transform 180ms ease, box-shadow 180ms ease;" style-hover="transform: translateY(-3px); box-shadow: var(--shadow-md);">
+            <div style="font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent-300);">{{ p.kicker }}</div>
+            <div style="font-family: var(--font-heading); font-size: 16px; letter-spacing: -0.01em;">{{ p.name }}</div>
+            <div style="font-size: 13px; line-height: 1.55; color: #9a9dac; text-wrap: pretty;">{{ p.tagline }}</div>
+          </div>
+        </sc-for>
+      </div>
     </div>
   </div>
   </sc-if>
@@ -232,13 +250,48 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1280}}">
 const PROJECTS = [
   {
+    id: "bookmatch",
+    name: "BookMatch",
+    kicker: "Full stack · Team of 2",
+    year: "",
+    tagline: "Swipe-based book recommendations: a Next.js swipe interface on an async FastAPI + PostgreSQL API, with pgvector matching readers to books.",
+    images: [
+      { src: "assets/bookmatch-main_page.png", ratio: "1917 / 902", caption: "The swipe deck: one book at a time with mood tags, a hook line and a short synopsis — pass or save." },
+      { src: "assets/bookmatch-library.png", ratio: "1917 / 902", caption: "The reader's collection of saved books, sortable and filterable by name, genre, mood and length." }
+    ],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "FastAPI", "PostgreSQL", "pgvector", "Alembic", "GitHub Actions"],
+    sections: [
+      { title: "Problem", items: [
+        "Picking the next book is slow when the options are a long list and a star rating. A swipe gives a fast yes/no signal, and every swipe is data the recommendations can learn from.",
+        "Built as a team of two, so the API contract, migrations and deployment had to be clear enough for two people to change them without stepping on each other."
+      ]},
+      { title: "Architecture", items: [
+        "Next.js and TypeScript frontend with Tailwind: sign-in, the swipe deck, and a library of saved books with sorting and filters. The UI is available in 5 languages.",
+        "Async FastAPI backend on PostgreSQL (Supabase) with JWT authentication; profile pictures and book covers are stored in Cloudflare R2.",
+        "Recommendation engine: books and readers live in one shared vector space, and pgvector KNN search finds the books nearest to each reader.",
+        "Schema managed through 20+ Alembic migrations, with row-level security on the database."
+      ]},
+      { title: "Decisions", items: [
+        "Recommendations inside PostgreSQL with pgvector rather than a separate vector store, so matching, users and swipes share one database and one set of permissions.",
+        "Nightly backups from a GitHub Actions workflow: pg_dump to Cloudflare R2 with 14-day retention, because a hosted database with real accounts needs a restore path that doesn't depend on seed scripts."
+      ]},
+      { title: "Status", items: [
+        "Live and usable in the browser; source on GitHub."
+      ]}
+    ],
+    links: [
+      { label: "Live app", url: "https://bookmatch-59t.pages.dev/" },
+      { label: "GitHub", url: "https://github.com/BenLubetzky/BookMatch" }
+    ]
+  },
+  {
     id: "ledgerdrop",
     name: "LedgerDrop",
-    kicker: "Full-stack · Document AI",
+    kicker: "Full stack · AI document processing",
     year: "2025",
-    tagline: "Invoice-processing web app: an async upload pipeline on FastAPI and SQLAlchemy, a Next.js frontend, and a designed path through extraction, validation and human review.",
+    tagline: "Invoice processing with human review: an async FastAPI pipeline extracts and validates invoices with the OpenAI API, and a Next.js review screen handles the ones it isn't sure about.",
     images: [{ src: "assets/ledgerdrop-upload.png", ratio: "1500 / 895", caption: "The invoice workspace: drop zone with format limits on the left, recent uploads and their processing state on the right, review queue one click away." }],
-    stack: ["Python", "FastAPI", "PostgreSQL", "SQLAlchemy", "Alembic", "Next.js", "TypeScript", "Docker"],
+    stack: ["FastAPI", "SQLAlchemy", "PostgreSQL", "Next.js", "TypeScript", "Docker", "Render", "OpenAI API", "Cloudflare R2"],
     sections: [
       { title: "Problem", items: [
         "Invoices arrive as PDFs and scans in no fixed format, and the data that matters — supplier, dates, line items, totals — has to end up in a database that can be trusted.",
@@ -246,9 +299,11 @@ const PROJECTS = [
       ]},
       { title: "Architecture", items: [
         "FastAPI service with an async upload endpoint: the file is stored, a processing job is queued, and the client polls job status instead of blocking on the request.",
+        "Extraction through the OpenAI API, then validation; invoices the pipeline is uncertain about are routed to a human review queue instead of being saved as-is.",
         "Extraction, validation and review are separate stages, each writing its own state to the document record, so a document's position in the pipeline is always explicit.",
-        "PostgreSQL through SQLAlchemy with Alembic migrations for schema changes; Docker Compose runs API, database and frontend together.",
-        "Next.js and TypeScript frontend: upload, a queue view of documents by state, and a review screen pairing extracted fields with the source document."
+        "PostgreSQL through SQLAlchemy with Alembic migrations for schema changes; Docker Compose runs API, database and frontend together locally.",
+        "Next.js and TypeScript frontend: upload, a queue view of documents by state, and a review screen to approve, reject or correct extracted fields next to the source document, with a full audit trail.",
+        "Deployed with Docker on Render, with uploaded files stored in Cloudflare R2."
       ]},
       { title: "Decisions", items: [
         "Status-driven job model over a long-running request, so a slow or failed extraction never takes the upload down with it.",
@@ -256,22 +311,22 @@ const PROJECTS = [
         "Every extracted field keeps its origin, which makes a correction traceable instead of silently overwriting the model's output."
       ]},
       { title: "Status", items: [
-        "Running as a staging deployment with the full upload → extract → validate → review path working end to end."
+        "Live, with the full upload → extract → validate → review path working end to end."
       ]}
     ],
     links: [
-      { label: "Live staging app", url: "https://ledgerdrop-frontend-staging.onrender.com/" },
+      { label: "Live app", url: "https://ledgerdrop-frontend-staging.onrender.com/" },
       { label: "GitHub", url: "https://github.com/BenLubetzky/LedgeDrop" }
     ]
   },
   {
     id: "support-agent",
     name: "Customer Support Agent",
-    kicker: "LLM systems · Agents",
+    kicker: "Backend · LLM integration",
     year: "2025",
-    tagline: "Agentic retail-support assistant with policy RAG, tool calling, identity checks, guarded order actions and human escalation.",
+    tagline: "FastAPI backend where an LLM agent handles orders through typed tools while refund rules stay in code — policy answers via RAG, risky requests escalated to a human.",
     images: [{ src: "assets/support-demo.png", ratio: "1840 / 972", caption: "The demo harness: preloaded scenarios on the left — cancel a processing order, refuse a cancellation after shipping, refund under the limit, escalate a refund over €500 — each running against the live chat on the right." }],
-    stack: ["Python", "FastAPI", "RAG", "Tool calling", "ChromaDB", "SQLite"],
+    stack: ["Python", "FastAPI", "OpenAI API", "RAG", "ChromaDB", "SQLite", "Docker"],
     sections: [
       { title: "Problem", items: [
         "A support assistant that only talks is of limited use; one that can act on orders is useful but dangerous. The interesting part is letting it act while keeping the actions safe.",
@@ -284,7 +339,7 @@ const PROJECTS = [
         "Identity check before any order-specific action, and an escalation path that hands the thread to a human with the conversation context attached."
       ]},
       { title: "Decisions", items: [
-        "Guarded tools instead of a general SQL tool: the agent can only do things the API already considers legal.",
+        "Guarded tools instead of a general SQL tool: the agent can only do things the API already considers legal, and refund rules stay in code rather than in the prompt.",
         "Read actions are free, write actions require verified identity and an explicit confirmation turn.",
         "Escalate on low retrieval confidence or a refused guard rather than letting the model improvise a policy."
       ]},
@@ -300,7 +355,7 @@ const PROJECTS = [
   {
     id: "paper-assistant",
     name: "Research Paper Assistant",
-    kicker: "RAG · Retrieval",
+    kicker: "AI integration · RAG",
     year: "2025",
     tagline: "Local RAG pipeline over computer-vision papers: structure-aware chunking, hybrid retrieval, metadata reranking and grounded, cited answers.",
     images: [{ src: "assets/paper-assistant.png", ratio: "1901 / 892", caption: "Ask a question across the paper library — here \u201cWhat loss and matching strategy does DETR use?\u201d — and the answer comes back grounded in retrieved passages." }],
@@ -329,6 +384,7 @@ const PROJECTS = [
   },
   {
     id: "arcface",
+    ml: true,
     name: "ArcFace Face Recognition",
     kicker: "Computer vision · From the paper",
     year: "2024",
@@ -390,6 +446,7 @@ const PROJECTS = [
   },
   {
     id: "car-detection",
+    ml: true,
     name: "Car Detection (YOLO)",
     kicker: "Computer vision · Detection",
     year: "",
@@ -408,6 +465,7 @@ const PROJECTS = [
   },
   {
     id: "brain-mri",
+    ml: true,
     name: "Brain MRI Tumor Detection",
     kicker: "Computer vision · Medical imaging",
     year: "",
@@ -507,17 +565,22 @@ class Component extends DCLogic {
       },
       openResumeTab: () => { if (this.state.pdfUrl) window.open(this.state.pdfUrl, "_blank"); },
       projects,
+      webProjects: projects.filter((p) => !p.ml),
+      mlProjects: projects.filter((p) => p.ml),
       featured: projects.slice(0, 3),
       hasSelection: !!selected,
       selected: selected ? { ...selected, images: selected.images || [] } : { sections: [], stack: [], links: [], images: [] },
       stack: [
-        { label: "Languages", items: ["Python", "TypeScript", "JavaScript", "SQL"] },
-        { label: "ML, vision & LLMs", items: ["PyTorch", "Torchvision", "scikit-learn", "NumPy", "CNNs", "Transfer learning", "Embeddings", "OpenAI API", "RAG", "ChromaDB"] },
-        { label: "Backend, frontend & tooling", items: ["FastAPI", "REST", "SQLAlchemy", "PostgreSQL", "Next.js", "React", "Docker", "Git", "pytest"] }
+        { label: "Frontend", items: ["TypeScript", "JavaScript", "React", "Next.js", "Tailwind CSS"] },
+        { label: "Backend", items: ["Python", "FastAPI", "REST APIs", "SQLAlchemy", "JWT"] },
+        { label: "Databases", items: ["PostgreSQL", "pgvector", "SQLite", "Alembic"] },
+        { label: "Tools & deployment", items: ["Git", "GitHub Actions", "Docker", "Render", "Cloudflare"] },
+        { label: "AI integrations", items: ["OpenAI API", "RAG", "Embeddings", "PyTorch"] }
       ],
       education: [
-        { degree: "BSc Computer Science", school: "University of Porto (FCUP)", dates: "2024–present, third year" },
-        { degree: "BSc Computer Science coursework", school: "Open University of Israel", dates: "2023–2024" }
+        { degree: "BSc Computer Science", school: "University of Porto (FCUP)", dates: "2024 – Sept 2027 (expected)", note: "Relevant coursework: Databases, Data Structures, Algorithms, Computer Networks" },
+        { degree: "Deep Learning Specialization", school: "DeepLearning.AI · Coursera", dates: "Jan 2026" },
+        { degree: "Computer Science coursework", school: "Open University of Israel", dates: "2023 – 2024" }
       ],
       languages: [
         { name: "Hebrew", level: "Native" },
