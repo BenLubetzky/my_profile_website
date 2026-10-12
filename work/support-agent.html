@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Customer Support Agent — Ben Lubetzky</title>
+<meta name="description" content="Customer Support Agent: an LLM-powered support backend with typed tools, RAG and human escalation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Ben Lubetzky</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#skills" class="hide-sm">Skills</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact" class="hide-sm">Contact</a>
+      <a href="../uploads/resume.pdf" target="_blank" rel="noopener" class="nav-cta">Résumé ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="case-hero">
+    <div class="wrap rise">
+      <a class="back" href="../index.html#work">← All work</a>
+      <h1>Customer Support Agent</h1>
+      <p class="lede">An LLM-powered support backend that can act on orders safely. The agent works through typed tools, refund rules stay in code, and risky requests go to a human.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Backend developer</dd></div>
+        <div><dt>Team</dt><dd>Solo</dd></div>
+        <div><dt>Status</dt><dd>Live</dd></div>
+        <div><dt>Links</dt><dd><a href="https://customer-support-assistant-28ki.onrender.com/" target="_blank" rel="noopener">Live demo ↗</a> · <a href="https://github.com/BenLubetzky/Customer_support_assistant" target="_blank" rel="noopener">Code ↗</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <figure class="case-figure rise d1">
+      <div class="shot"><img src="../assets/web/support-demo.webp" alt="Customer support demo with scenarios and chat" width="1600" height="845"></div>
+      <figcaption>The demo workspace: preloaded scenarios on the left (cancel a processing order, refuse a cancellation after shipping, refund under the limit, escalate a refund over €500), each running against the live chat on the right.</figcaption>
+    </figure>
+
+    <div class="case-body">
+      <section class="case-section">
+        <h2>Problem</h2>
+        <ul class="points">
+          <li>A support assistant that only talks is of limited use; one that can act on orders is useful but risky. The goal was letting it act while keeping every action safe.</li>
+          <li>Answers about returns, shipping and refunds have to come from the shop's actual policy, not from the model's general idea of how retail works.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>What I built</h2>
+        <ul class="points">
+          <li>FastAPI backend holding the conversation loop: the model receives the user's message plus retrieved policy passages and chooses between answering and calling a tool.</li>
+          <li>Order data in SQLite behind a small set of typed tools (look up an order, check eligibility, cancel, refund) rather than free database access.</li>
+          <li>Policy answers grounded with RAG over a ChromaDB collection of the shop's policy documents.</li>
+          <li>Identity check before any order-specific action, and an escalation path that hands the conversation to a human with its context attached. Packaged with Docker.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>Key decisions</h2>
+        <ul class="points">
+          <li>Typed tools instead of a general SQL tool: the agent can only do what the API already allows.</li>
+          <li>Refund limits and eligibility rules live in code, not in the prompt, so the model can't talk its way past them.</li>
+          <li>Escalate when retrieval confidence is low or a rule blocks the action, instead of letting the model improvise a policy.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>Stack</h2>
+        <ul class="stack-list">
+          <li>Python</li><li>FastAPI</li><li>OpenAI API</li><li>Tool calling</li><li>RAG</li><li>ChromaDB</li><li>SQLite</li><li>Docker</li>
+        </ul>
+      </section>
+    </div>
+
+    <nav class="next" aria-label="Next project">
+      <a class="back" href="../index.html#work" style="margin: 0;">← All work</a>
+      <div><span class="label">Next project</span><a class="title" href="paper-assistant.html">Research Paper Assistant →</a></div>
+    </nav>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:b0508181058@gmail.com">b0508181058@gmail.com</a></div>
+</footer>
+
+<script>
+  const header = document.querySelector(".site-header");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+</script>
+</body>
+</html>

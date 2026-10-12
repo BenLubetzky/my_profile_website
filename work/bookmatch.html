@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookMatch — Ben Lubetzky</title>
+<meta name="description" content="BookMatch: swipe-based book recommendations built with Next.js, FastAPI, PostgreSQL and pgvector.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Ben Lubetzky</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#skills" class="hide-sm">Skills</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact" class="hide-sm">Contact</a>
+      <a href="../uploads/resume.pdf" target="_blank" rel="noopener" class="nav-cta">Résumé ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="case-hero">
+    <div class="wrap rise">
+      <a class="back" href="../index.html#work">← All work</a>
+      <h1>BookMatch</h1>
+      <p class="lede">Swipe-based book recommendations. A Next.js swipe interface on an async FastAPI + PostgreSQL API, with pgvector matching readers to books.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Full stack developer</dd></div>
+        <div><dt>Team</dt><dd>2 people</dd></div>
+        <div><dt>Status</dt><dd>Live</dd></div>
+        <div><dt>Links</dt><dd><a href="https://bookmatch-59t.pages.dev/" target="_blank" rel="noopener">Live app ↗</a> · <a href="https://github.com/BenLubetzky/BookMatch" target="_blank" rel="noopener">Code ↗</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <figure class="case-figure rise d1">
+      <div class="shot"><img src="../assets/web/bookmatch-main_page.webp" alt="BookMatch swipe screen" width="1600" height="753"></div>
+      <figcaption>The swipe deck: one book at a time with mood tags, a hook line and a short synopsis. Pass or save.</figcaption>
+    </figure>
+
+    <div class="case-body">
+      <section class="case-section">
+        <h2>Problem</h2>
+        <ul class="points">
+          <li>Picking the next book is slow when the options are a long list and a star rating. A swipe gives a fast yes/no signal, and every swipe is data the recommendations can use.</li>
+          <li>Built by a team of two, so the API contract, migrations and deployment had to be clear enough for both of us to change them safely.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>What I built</h2>
+        <ul class="points">
+          <li>Next.js and TypeScript frontend with Tailwind: sign-in, the swipe deck, and a library of saved books with sorting and filters. The UI is available in 5 languages.</li>
+          <li>Async FastAPI backend on PostgreSQL (Supabase) with JWT authentication; profile pictures and book covers stored in Cloudflare R2.</li>
+          <li>Recommendation engine: books and readers live in one shared vector space, and pgvector KNN search finds the books nearest to each reader.</li>
+          <li>Schema managed through 20+ Alembic migrations, with row-level security on the database.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>Key decisions</h2>
+        <ul class="points">
+          <li>Recommendations inside PostgreSQL with pgvector rather than a separate vector store, so matching, users and swipes share one database and one set of permissions.</li>
+          <li>Nightly backups from a GitHub Actions workflow: <code>pg_dump</code> to Cloudflare R2 with 14-day retention, because a hosted database with real accounts needs a restore path that doesn't depend on seed scripts.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>Stack</h2>
+        <ul class="stack-list">
+          <li>Next.js</li><li>TypeScript</li><li>Tailwind CSS</li><li>FastAPI</li><li>PostgreSQL</li><li>pgvector</li><li>Alembic</li><li>JWT</li><li>Cloudflare R2</li><li>GitHub Actions</li>
+        </ul>
+      </section>
+    </div>
+
+    <figure class="case-figure">
+      <div class="shot"><img src="../assets/web/bookmatch-library.webp" alt="BookMatch saved books library with filters" loading="lazy" width="1600" height="753"></div>
+      <figcaption>The reader's collection of saved books, sortable and filterable by name, genre, mood and length.</figcaption>
+    </figure>
+
+    <nav class="next" aria-label="Next project">
+      <a class="back" href="../index.html#work" style="margin: 0;">← All work</a>
+      <div><span class="label">Next project</span><a class="title" href="ledgerdrop.html">LedgerDrop →</a></div>
+    </nav>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:b0508181058@gmail.com">b0508181058@gmail.com</a></div>
+</footer>
+
+<script>
+  const header = document.querySelector(".site-header");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+</script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research Paper Assistant — Ben Lubetzky</title>
+<meta name="description" content="Research Paper Assistant: a RAG pipeline over computer-vision papers with hybrid retrieval and cited answers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Ben Lubetzky</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#skills" class="hide-sm">Skills</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact" class="hide-sm">Contact</a>
+      <a href="../uploads/resume.pdf" target="_blank" rel="noopener" class="nav-cta">Résumé ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="case-hero">
+    <div class="wrap rise">
+      <a class="back" href="../index.html#work">← All work</a>
+      <h1>Research Paper Assistant</h1>
+      <p class="lede">Question answering over a library of computer-vision papers, with structure-aware chunking, hybrid retrieval, reranking and answers that cite their sources.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Developer</dd></div>
+        <div><dt>Team</dt><dd>Solo</dd></div>
+        <div><dt>Status</dt><dd>Runs locally</dd></div>
+        <div><dt>Links</dt><dd><a href="https://github.com/BenLubetzky/Computer_Vision_Paper_Research_Assistant" target="_blank" rel="noopener">Code ↗</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <figure class="case-figure rise d1">
+      <div class="shot"><img src="../assets/web/paper-assistant.webp" alt="Research Paper Assistant answering a question about DETR" width="1600" height="751"></div>
+      <figcaption>Asking a question across the paper library (here, what loss and matching strategy DETR uses) returns an answer grounded in retrieved passages.</figcaption>
+    </figure>
+
+    <div class="case-body">
+      <section class="case-section">
+        <h2>Problem</h2>
+        <ul class="points">
+          <li>Papers break naive chunking: a fixed window cuts through equations, tables and figure captions, and the retrieved fragment then answers nothing.</li>
+          <li>For research questions, a plausible answer is worthless without the passage it came from.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>What I built</h2>
+        <ul class="points">
+          <li>PDF ingestion that follows document structure (sections, captions, references), so each chunk is a coherent piece of the paper.</li>
+          <li>Hybrid retrieval combining embeddings with keyword search, which keeps exact terms like model and dataset names findable.</li>
+          <li>Reranking on chunk metadata before the context is assembled, and answers returned with citations back to paper and section, served through FastAPI.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>Key decisions</h2>
+        <ul class="points">
+          <li>Hybrid over embeddings-only retrieval: model names and metrics are the queries that matter most, and they're lexical.</li>
+          <li>No answer without a citation. If retrieval comes back empty, the system says so.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>Stack</h2>
+        <ul class="stack-list">
+          <li>Python</li><li>FastAPI</li><li>Embeddings</li><li>Hybrid retrieval</li><li>ChromaDB</li><li>PDF parsing</li>
+        </ul>
+      </section>
+    </div>
+
+    <nav class="next" aria-label="Next project">
+      <a class="back" href="../index.html#work" style="margin: 0;">← All work</a>
+      <div><span class="label">Next project</span><a class="title" href="spanish.html">Spanish Learning Website →</a></div>
+    </nav>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:b0508181058@gmail.com">b0508181058@gmail.com</a></div>
+</footer>
+
+<script>
+  const header = document.querySelector(".site-header");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+</script>
+</body>
+</html>

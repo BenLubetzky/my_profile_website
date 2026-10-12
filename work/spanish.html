@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spanish Learning Website — Ben Lubetzky</title>
+<meta name="description" content="Spanish Learning Website: a spaced-repetition vocabulary trainer built as a static web app.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">Ben Lubetzky</a>
+    <nav class="nav" aria-label="Main">
+      <a href="../index.html#work">Work</a>
+      <a href="../index.html#skills" class="hide-sm">Skills</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact" class="hide-sm">Contact</a>
+      <a href="../uploads/resume.pdf" target="_blank" rel="noopener" class="nav-cta">Résumé ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="case-hero">
+    <div class="wrap rise">
+      <a class="back" href="../index.html#work">← All work</a>
+      <h1>Spanish Learning Website</h1>
+      <p class="lede">A spaced-repetition Spanish trainer: decks of words and sentences, typed recall in both directions, pronunciation playback, and progress saved in the browser.</p>
+      <dl class="facts">
+        <div><dt>Role</dt><dd>Frontend developer</dd></div>
+        <div><dt>Team</dt><dd>Solo</dd></div>
+        <div><dt>Status</dt><dd>Complete</dd></div>
+        <div><dt>Links</dt><dd><a href="https://github.com/BenLubetzky/Spanish-Learning-Website" target="_blank" rel="noopener">Code ↗</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <figure class="case-figure rise d1">
+      <div class="shot"><img src="../assets/web/spanish-study.webp" alt="Study session screen" width="1600" height="762"></div>
+      <figcaption>Study session: type the translation, switch direction between ES→EN and EN→ES, reveal the card, or play the pronunciation.</figcaption>
+    </figure>
+
+    <div class="case-body">
+      <section class="case-section">
+        <h2>Problem</h2>
+        <ul class="points">
+          <li>Vocabulary sticks through short, frequent recall rather than long sessions, so a few minutes of practice has to be frictionless and the schedule has to be kept for you.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>What I built</h2>
+        <ul class="points">
+          <li>Four screens (decks, study, progress, settings) over a single local collection of cards.</li>
+          <li>Each answer is graded by typed recall in either direction, and the grade decides when the card is next due.</li>
+          <li>Pronunciation through the browser's speech synthesis, with a selectable voice.</li>
+          <li>All state in browser storage, with CSV import and a full JSON backup so the collection survives a cleared browser.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>Key decisions</h2>
+        <ul class="points">
+          <li>Typing the translation instead of multiple choice: recall, not recognition.</li>
+          <li>No backend. The collection is personal, so local storage plus export is enough and the app deploys as static files.</li>
+        </ul>
+      </section>
+
+      <section class="case-section">
+        <h2>Stack</h2>
+        <ul class="stack-list">
+          <li>JavaScript</li><li>HTML</li><li>CSS</li><li>Web Speech API</li><li>Local storage</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="gallery">
+    <figure class="case-figure">
+      <div class="shot"><img src="../assets/web/spanish-decks.webp" alt="Deck picker screen" loading="lazy" width="1600" height="662"></div>
+      <figcaption>Deck picker and card preview: word or sentence on the front, translation on the back.</figcaption>
+    </figure>
+    <figure class="case-figure">
+      <div class="shot"><img src="../assets/web/spanish-progress.webp" alt="Progress screen" loading="lazy" width="1600" height="754"></div>
+      <figcaption>Progress: cards reviewed against the daily target, current streak, retention for the day, and what's due across decks.</figcaption>
+    </figure>
+    <figure class="case-figure">
+      <div class="shot"><img src="../assets/web/spanish-settings.webp" alt="Settings screen" loading="lazy" width="1600" height="759"></div>
+      <figcaption>Settings: appearance, daily target and pronunciation voice, plus CSV import and JSON backup.</figcaption>
+    </figure>
+    </div>
+    <nav class="next" aria-label="Next project">
+      <a class="back" href="../index.html#work" style="margin: 0;">← All work</a>
+      <div><span class="label">Next project</span><a class="title" href="bookmatch.html">BookMatch →</a></div>
+    </nav>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:b0508181058@gmail.com">b0508181058@gmail.com</a></div>
+</footer>
+
+<script>
+  const header = document.querySelector(".site-header");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+</script>
+</body>
+</html>
