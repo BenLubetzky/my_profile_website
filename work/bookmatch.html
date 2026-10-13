@@ -30,9 +30,9 @@
     <div class="wrap rise">
       <a class="back" href="../index.html#work">← All work</a>
       <h1>BookMatch</h1>
-      <p class="lede">Swipe-based book recommendations. A Next.js swipe interface on an async FastAPI + PostgreSQL API, with pgvector matching readers to books.</p>
+      <p class="lede">A book discovery app that learns each reader's taste from swipes and uses it to recommend the next books. I built it, with help from a second developer.</p>
       <dl class="facts">
-        <div><dt>Role</dt><dd>Full stack developer</dd></div>
+        <div><dt>Role</dt><dd>Lead developer</dd></div>
         <div><dt>Team</dt><dd>2 people</dd></div>
         <div><dt>Status</dt><dd>Live</dd></div>
         <div><dt>Links</dt><dd><a href="https://bookmatch-59t.pages.dev/" target="_blank" rel="noopener">Live app ↗</a> · <a href="https://github.com/BenLubetzky/BookMatch" target="_blank" rel="noopener">Code ↗</a></dd></div>
@@ -48,31 +48,21 @@
 
     <div class="case-body">
       <section class="case-section">
-        <h2>Problem</h2>
+        <h2>Overview</h2>
         <ul class="points">
-          <li>Picking the next book is slow when the options are a long list and a star rating. A swipe gives a fast yes/no signal, and every swipe is data the recommendations can use.</li>
-          <li>Built by a team of two, so the API contract, migrations and deployment had to be clear enough for both of us to change them safely.</li>
+          <li>Readers swipe through books one at a time, save the ones they like, and keep them in a personal library with ratings and notes.</li>
+          <li>The app also has genre-based discovery and search, and the interface is available in 5 languages.</li>
         </ul>
       </section>
-
       <section class="case-section">
         <h2>What I built</h2>
         <ul class="points">
-          <li>Next.js and TypeScript frontend with Tailwind: sign-in, the swipe deck, and a library of saved books with sorting and filters. The UI is available in 5 languages.</li>
-          <li>Async FastAPI backend on PostgreSQL (Supabase) with JWT authentication; profile pictures and book covers stored in Cloudflare R2.</li>
-          <li>Recommendation engine: books and readers live in one shared vector space, and pgvector KNN search finds the books nearest to each reader.</li>
-          <li>Schema managed through 20+ Alembic migrations, with row-level security on the database.</li>
+          <li>The Next.js swipe interface, on top of an async FastAPI + PostgreSQL API with JWT authentication.</li>
+          <li>The recommendation engine: books and readers share one vector space, and pgvector KNN search finds the books closest to each reader.</li>
+          <li>The database side: 20+ migrations, row-level security, and automated nightly backups with GitHub Actions.</li>
+          <li>File storage for book covers and profile pictures in Cloudflare R2, and deployment of the frontend on Cloudflare.</li>
         </ul>
       </section>
-
-      <section class="case-section">
-        <h2>Key decisions</h2>
-        <ul class="points">
-          <li>Recommendations inside PostgreSQL with pgvector rather than a separate vector store, so matching, users and swipes share one database and one set of permissions.</li>
-          <li>Nightly backups from a GitHub Actions workflow: <code>pg_dump</code> to Cloudflare R2 with 14-day retention, because a hosted database with real accounts needs a restore path that doesn't depend on seed scripts.</li>
-        </ul>
-      </section>
-
       <section class="case-section">
         <h2>Stack</h2>
         <ul class="stack-list">
@@ -94,7 +84,7 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:b0508181058@gmail.com">b0508181058@gmail.com</a></div>
+  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:lubetzkyben@gmail.com">lubetzkyben@gmail.com</a></div>
 </footer>
 
 <script>

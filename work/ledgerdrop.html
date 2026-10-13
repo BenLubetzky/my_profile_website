@@ -30,7 +30,7 @@
     <div class="wrap rise">
       <a class="back" href="../index.html#work">← All work</a>
       <h1>LedgerDrop</h1>
-      <p class="lede">Invoice processing with a human in the loop. An async FastAPI pipeline extracts and validates invoices, and a Next.js review screen handles the ones it isn't sure about.</p>
+      <p class="lede">An invoice-processing app. It extracts structured data from uploaded PDF invoices and checks it automatically; results it isn't sure about go to a person for review.</p>
       <dl class="facts">
         <div><dt>Role</dt><dd>Full stack developer</dd></div>
         <div><dt>Team</dt><dd>Solo</dd></div>
@@ -43,41 +43,29 @@
   <div class="wrap">
     <figure class="case-figure rise d1">
       <div class="shot"><img src="../assets/web/ledgerdrop-upload.webp" alt="LedgerDrop invoice workspace" width="1500" height="895"></div>
-      <figcaption>The invoice workspace: upload area with format limits on the left, recent uploads and their processing state on the right, review queue one click away.</figcaption>
+      <figcaption>The upload page: drop an invoice PDF on the left, recent documents on the right, and a link to the review queue at the top.</figcaption>
     </figure>
 
     <div class="case-body">
       <section class="case-section">
-        <h2>Problem</h2>
+        <h2>Overview</h2>
         <ul class="points">
-          <li>Invoices arrive as PDFs and scans in no fixed format, and the data that matters (supplier, dates, line items, totals) has to end up in a database that can be trusted.</li>
-          <li>Fully automatic extraction is never fully correct, so the app is built around review rather than pretending the model is always right.</li>
+          <li>You upload an invoice PDF, the backend extracts the data from it and validates it.</li>
+          <li>Invoices that pass go through; uncertain ones go to a review screen, where the data can be approved, rejected or corrected.</li>
         </ul>
       </section>
-
       <section class="case-section">
         <h2>What I built</h2>
         <ul class="points">
-          <li>FastAPI service with an async upload endpoint: the file is stored, a processing job is queued, and the client polls job status instead of blocking on the request.</li>
-          <li>Extraction through the OpenAI API, then validation; invoices the pipeline is uncertain about are routed to a human review queue instead of being saved as-is.</li>
-          <li>Next.js and TypeScript review screen to approve, reject or correct extracted fields next to the source document, with a full audit trail.</li>
-          <li>PostgreSQL through SQLAlchemy with Alembic migrations. Deployed with Docker on Render, with uploaded files stored in Cloudflare R2.</li>
+          <li>An async FastAPI pipeline that processes the uploaded invoices, using the OpenAI API for the extraction.</li>
+          <li>A Next.js review screen for approving, rejecting or correcting the data, with an audit trail of the changes.</li>
+          <li>PostgreSQL with SQLAlchemy for the data, Cloudflare R2 for file storage, and deployment with Docker on Render.</li>
         </ul>
       </section>
-
-      <section class="case-section">
-        <h2>Key decisions</h2>
-        <ul class="points">
-          <li>A status-driven job model instead of one long request, so a slow or failed extraction never takes the upload down with it.</li>
-          <li>Validation rules run before a human sees a document, so review time goes to genuine ambiguity rather than arithmetic.</li>
-          <li>Every extracted field keeps its origin, so a correction is traceable instead of silently overwriting the model's output.</li>
-        </ul>
-      </section>
-
       <section class="case-section">
         <h2>Stack</h2>
         <ul class="stack-list">
-          <li>FastAPI</li><li>SQLAlchemy</li><li>PostgreSQL</li><li>Alembic</li><li>Next.js</li><li>TypeScript</li><li>Docker</li><li>Render</li><li>Cloudflare R2</li><li>OpenAI API</li>
+          <li>FastAPI</li><li>SQLAlchemy</li><li>PostgreSQL</li><li>Next.js</li><li>TypeScript</li><li>Docker</li><li>Render</li><li>Cloudflare R2</li><li>OpenAI API</li>
         </ul>
       </section>
     </div>
@@ -90,7 +78,7 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:b0508181058@gmail.com">b0508181058@gmail.com</a></div>
+  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:lubetzkyben@gmail.com">lubetzkyben@gmail.com</a></div>
 </footer>
 
 <script>

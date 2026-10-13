@@ -30,7 +30,7 @@
     <div class="wrap rise">
       <a class="back" href="../index.html#work">← All work</a>
       <h1>Spanish Learning Website</h1>
-      <p class="lede">A spaced-repetition Spanish trainer: decks of words and sentences, typed recall in both directions, pronunciation playback, and progress saved in the browser.</p>
+      <p class="lede">A flashcard app for learning Spanish vocabulary, with typed answers in both directions, pronunciation, and progress saved in the browser.</p>
       <dl class="facts">
         <div><dt>Role</dt><dd>Frontend developer</dd></div>
         <div><dt>Team</dt><dd>Solo</dd></div>
@@ -48,30 +48,20 @@
 
     <div class="case-body">
       <section class="case-section">
-        <h2>Problem</h2>
+        <h2>Overview</h2>
         <ul class="points">
-          <li>Vocabulary sticks through short, frequent recall rather than long sessions, so a few minutes of practice has to be frictionless and the schedule has to be kept for you.</li>
+          <li>Words and sentences are organised in decks. You study by typing the translation, Spanish to English or English to Spanish, and cards come back for review over time.</li>
+          <li>A progress page shows daily reviews and your streak.</li>
         </ul>
       </section>
-
       <section class="case-section">
         <h2>What I built</h2>
         <ul class="points">
-          <li>Four screens (decks, study, progress, settings) over a single local collection of cards.</li>
-          <li>Each answer is graded by typed recall in either direction, and the grade decides when the card is next due.</li>
-          <li>Pronunciation through the browser's speech synthesis, with a selectable voice.</li>
-          <li>All state in browser storage, with CSV import and a full JSON backup so the collection survives a cleared browser.</li>
+          <li>Four screens: decks, study, progress and settings.</li>
+          <li>Pronunciation using the browser's built-in speech synthesis.</li>
+          <li>Saving everything in the browser, with CSV import and JSON backup. There's no backend.</li>
         </ul>
       </section>
-
-      <section class="case-section">
-        <h2>Key decisions</h2>
-        <ul class="points">
-          <li>Typing the translation instead of multiple choice: recall, not recognition.</li>
-          <li>No backend. The collection is personal, so local storage plus export is enough and the app deploys as static files.</li>
-        </ul>
-      </section>
-
       <section class="case-section">
         <h2>Stack</h2>
         <ul class="stack-list">
@@ -87,7 +77,7 @@
     </figure>
     <figure class="case-figure">
       <div class="shot"><img src="../assets/web/spanish-progress.webp" alt="Progress screen" loading="lazy" width="1600" height="754"></div>
-      <figcaption>Progress: cards reviewed against the daily target, current streak, retention for the day, and what's due across decks.</figcaption>
+      <figcaption>Progress: cards reviewed today, the daily target, the current streak, and what's due in each deck.</figcaption>
     </figure>
     <figure class="case-figure">
       <div class="shot"><img src="../assets/web/spanish-settings.webp" alt="Settings screen" loading="lazy" width="1600" height="759"></div>
@@ -102,7 +92,7 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:b0508181058@gmail.com">b0508181058@gmail.com</a></div>
+  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:lubetzkyben@gmail.com">lubetzkyben@gmail.com</a></div>
 </footer>
 
 <script>

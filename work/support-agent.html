@@ -30,7 +30,7 @@
     <div class="wrap rise">
       <a class="back" href="../index.html#work">← All work</a>
       <h1>Customer Support Agent</h1>
-      <p class="lede">An LLM-powered support backend that can act on orders safely. The agent works through typed tools, refund rules stay in code, and risky requests go to a human.</p>
+      <p class="lede">A support assistant for a fictional online store. It helps with order tracking, cancellations and returns, answers policy questions from the store's documentation, and hands complex cases to a person.</p>
       <dl class="facts">
         <div><dt>Role</dt><dd>Backend developer</dd></div>
         <div><dt>Team</dt><dd>Solo</dd></div>
@@ -48,36 +48,24 @@
 
     <div class="case-body">
       <section class="case-section">
-        <h2>Problem</h2>
+        <h2>Overview</h2>
         <ul class="points">
-          <li>A support assistant that only talks is of limited use; one that can act on orders is useful but risky. The goal was letting it act while keeping every action safe.</li>
-          <li>Answers about returns, shipping and refunds have to come from the shop's actual policy, not from the model's general idea of how retail works.</li>
+          <li>Customers chat with the assistant about their orders. It can look orders up and act on them through a fixed set of tools.</li>
+          <li>Questions about the store's policies are answered from its documentation, and cases it shouldn't handle alone are escalated to a human.</li>
         </ul>
       </section>
-
       <section class="case-section">
         <h2>What I built</h2>
         <ul class="points">
-          <li>FastAPI backend holding the conversation loop: the model receives the user's message plus retrieved policy passages and chooses between answering and calling a tool.</li>
-          <li>Order data in SQLite behind a small set of typed tools (look up an order, check eligibility, cancel, refund) rather than free database access.</li>
-          <li>Policy answers grounded with RAG over a ChromaDB collection of the shop's policy documents.</li>
-          <li>Identity check before any order-specific action, and an escalation path that hands the conversation to a human with its context attached. Packaged with Docker.</li>
+          <li>A FastAPI backend where the assistant, using the OpenAI API, works through typed tools instead of accessing the database directly.</li>
+          <li>Refund rules kept in code rather than left to the model.</li>
+          <li>RAG over the store's policy documents with ChromaDB, order data in SQLite, and a Docker setup for deployment.</li>
         </ul>
       </section>
-
-      <section class="case-section">
-        <h2>Key decisions</h2>
-        <ul class="points">
-          <li>Typed tools instead of a general SQL tool: the agent can only do what the API already allows.</li>
-          <li>Refund limits and eligibility rules live in code, not in the prompt, so the model can't talk its way past them.</li>
-          <li>Escalate when retrieval confidence is low or a rule blocks the action, instead of letting the model improvise a policy.</li>
-        </ul>
-      </section>
-
       <section class="case-section">
         <h2>Stack</h2>
         <ul class="stack-list">
-          <li>Python</li><li>FastAPI</li><li>OpenAI API</li><li>Tool calling</li><li>RAG</li><li>ChromaDB</li><li>SQLite</li><li>Docker</li>
+          <li>Python</li><li>FastAPI</li><li>OpenAI API</li><li>RAG</li><li>ChromaDB</li><li>SQLite</li><li>Docker</li>
         </ul>
       </section>
     </div>
@@ -90,7 +78,7 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:b0508181058@gmail.com">b0508181058@gmail.com</a></div>
+  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:lubetzkyben@gmail.com">lubetzkyben@gmail.com</a></div>
 </footer>
 
 <script>

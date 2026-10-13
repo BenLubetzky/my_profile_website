@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ben Lubetzky — Full Stack Developer</title>
-<meta name="description" content="Ben Lubetzky, junior full stack developer in Porto. Next.js, FastAPI and PostgreSQL web apps with AI features built on LLM APIs, RAG and embeddings.">
+<meta name="description" content="Ben Lubetzky, junior full stack developer in Porto. Web apps with Next.js, FastAPI and PostgreSQL, some using the OpenAI API.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
@@ -31,17 +31,17 @@
   <section class="hero">
     <div class="wrap">
       <div class="rise">
-        <div class="status"><span class="dot" aria-hidden="true"></span>Junior full stack developer · Porto · Available now</div>
-        <h1>I build and ship full stack web apps <span class="soft">— and the AI features inside them.</span></h1>
-        <p class="lede">I'm a Computer Science student at the University of Porto. I take web apps from database schema to deployed product with Next.js, FastAPI and PostgreSQL, and integrate AI through LLM APIs, RAG and embeddings where it solves a real problem.</p>
+        <div class="status"><span class="dot" aria-hidden="true"></span>Junior full stack developer · Porto · Available immediately</div>
+        <h1>I build web apps <span class="soft">with Next.js, FastAPI and PostgreSQL.</span></h1>
+        <p class="lede">I'm a Computer Science student at the University of Porto, looking for a junior full stack role. My projects cover the frontend, the backend and the database, and some of them use LLMs through the OpenAI API.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#work">See my work</a>
           <a class="btn btn-secondary" href="uploads/resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
         </div>
         <div class="social">
           <a href="https://github.com/BenLubetzky" target="_blank" rel="noopener">GitHub ↗</a>
-          <a href="https://linkedin.com/in/ben-lubetzky-51782742a" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="mailto:b0508181058@gmail.com">Email</a>
+          <a href="https://linkedin.com/in/ben-lubetzky" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="mailto:lubetzkyben@gmail.com">Email</a>
         </div>
       </div>
       <div class="portrait rise d1">
@@ -55,7 +55,7 @@
     <div class="wrap">
       <div class="section-head">
         <h2>Selected work</h2>
-        <p>Deployed apps, built end to end.</p>
+        <p>Each one has a live demo.</p>
       </div>
 
       <article class="project">
@@ -63,15 +63,15 @@
           <div class="shot crop"><img src="assets/web/bookmatch-main_page.webp" alt="BookMatch swipe screen showing a book card with pass and save buttons" loading="lazy" width="1600" height="753"></div>
         </a>
         <div>
-          <div class="meta">Team of 2 · Live</div>
+          <div class="meta">Lead developer · Team of 2 · Live</div>
           <h3><a href="work/bookmatch.html">BookMatch</a></h3>
-          <p class="summary">Swipe-based book recommendations. Readers swipe through books; a vector search over a shared book/reader space decides what comes next.</p>
+          <p class="summary">A book discovery platform that learns each reader's taste from swipes and refines recommendations in real time, with genre-based discovery, search and a personal library with ratings and notes.</p>
           <ul class="points">
             <li>Next.js swipe interface on an async FastAPI + PostgreSQL API, with JWT auth and a 5-language UI</li>
             <li>Recommendation engine built on pgvector KNN search</li>
             <li>20+ migrations, row-level security and nightly backups via GitHub Actions</li>
           </ul>
-          <p class="stack">Next.js · TypeScript · Tailwind · FastAPI · PostgreSQL · pgvector</p>
+          <p class="stack">Next.js · TypeScript · Tailwind CSS · FastAPI · PostgreSQL · pgvector · GitHub Actions</p>
           <div class="links">
             <a class="link" href="work/bookmatch.html">Case study →</a>
             <a class="link" href="https://bookmatch-59t.pages.dev/" target="_blank" rel="noopener">Live ↗</a>
@@ -87,13 +87,13 @@
         <div>
           <div class="meta">Solo · Live</div>
           <h3><a href="work/ledgerdrop.html">LedgerDrop</a></h3>
-          <p class="summary">Invoice processing with a human in the loop. Invoices are extracted and validated automatically; the uncertain ones go to a review screen.</p>
+          <p class="summary">An invoice-processing platform that extracts structured data from uploaded PDFs and validates it automatically. Uncertain results are routed to a human review workflow.</p>
           <ul class="points">
-            <li>Async FastAPI pipeline with LLM extraction through the OpenAI API</li>
-            <li>Next.js review screen to approve, reject or correct, with a full audit trail</li>
+            <li>Async FastAPI pipeline, with data extraction through the OpenAI API</li>
+            <li>Next.js review screen to approve, reject or correct the data, with an audit trail</li>
             <li>Deployed with Docker on Render, files stored in Cloudflare R2</li>
           </ul>
-          <p class="stack">FastAPI · SQLAlchemy · PostgreSQL · Next.js · TypeScript · Docker · OpenAI API</p>
+          <p class="stack">FastAPI · SQLAlchemy · PostgreSQL · Next.js · TypeScript · Docker · Render · OpenAI API</p>
           <div class="links">
             <a class="link" href="work/ledgerdrop.html">Case study →</a>
             <a class="link" href="https://ledgerdrop-frontend-staging.onrender.com/" target="_blank" rel="noopener">Live ↗</a>
@@ -109,11 +109,11 @@
         <div>
           <div class="meta">Solo · Live</div>
           <h3><a href="work/support-agent.html">Customer Support Agent</a></h3>
-          <p class="summary">An LLM-powered support backend that can act on orders safely: the model chooses the action, the code decides what's allowed.</p>
+          <p class="summary">An AI-powered support assistant for a fictional online store, handling order tracking, cancellations and returns, answering policy questions from the store's documentation and escalating complex cases to a human agent.</p>
           <ul class="points">
-            <li>FastAPI backend where an AI agent handles orders through typed tools</li>
+            <li>FastAPI backend where the assistant handles orders through typed tools</li>
             <li>Refund rules stay in code, not in the prompt</li>
-            <li>Policy answers grounded with RAG; risky requests escalate to a human</li>
+            <li>Policy questions answered from the store's documentation with RAG</li>
           </ul>
           <p class="stack">Python · FastAPI · OpenAI API · RAG · ChromaDB · SQLite · Docker</p>
           <div class="links">
@@ -127,10 +127,10 @@
       <h3 class="subhead">More projects</h3>
       <div class="cards">
         <div class="card">
-          <div class="meta">AI integration · RAG</div>
+          <div class="meta">RAG · Runs locally</div>
           <h4>Research Paper Assistant</h4>
-          <p>Question answering over computer-vision papers with structure-aware chunking, hybrid retrieval and cited answers.</p>
-          <p class="stack">Python · FastAPI · Embeddings · ChromaDB</p>
+          <p>A local RAG assistant: ask a question about a set of computer-vision papers and get an answer with citations to the passages it used.</p>
+          <p class="stack">Python · FastAPI · ChromaDB · OpenAI API</p>
           <div class="links">
             <a class="link" href="work/paper-assistant.html">Case study →</a>
             <a class="link" href="https://github.com/BenLubetzky/Computer_Vision_Paper_Research_Assistant" target="_blank" rel="noopener">Code ↗</a>
@@ -139,7 +139,7 @@
         <div class="card">
           <div class="meta">Frontend · Web app</div>
           <h4>Spanish Learning Website</h4>
-          <p>A spaced-repetition vocabulary trainer with typed recall in both directions, pronunciation playback and progress tracking.</p>
+          <p>A flashcard app for learning Spanish vocabulary, with typed answers, pronunciation and progress tracking.</p>
           <p class="stack">JavaScript · Web Speech API · Local storage</p>
           <div class="links">
             <a class="link" href="work/spanish.html">Case study →</a>
@@ -150,9 +150,9 @@
 
       <h3 class="subhead">Earlier work · machine learning</h3>
       <ul class="archive">
-        <li><a href="https://github.com/BenLubetzky/face_recognition_arcface" target="_blank" rel="noopener"><span class="name">ArcFace Face Recognition</span><span class="desc">Face identification with a ResNet-50 and angular-margin loss, in PyTorch</span><span class="go">GitHub ↗</span></a></li>
-        <li><a href="https://github.com/BenLubetzky/car_detection" target="_blank" rel="noopener"><span class="name">Car Detection</span><span class="desc">Object detection on road imagery with YOLO</span><span class="go">GitHub ↗</span></a></li>
-        <li><a href="https://github.com/BenLubetzky/brainMRI_tumor_detection" target="_blank" rel="noopener"><span class="name">Brain MRI Tumor Detection</span><span class="desc">Comparing pretrained CNNs with transfer learning on MRI scans</span><span class="go">GitHub ↗</span></a></li>
+        <li><a href="https://github.com/BenLubetzky/face_recognition_arcface" target="_blank" rel="noopener"><span class="name">ArcFace Face Recognition</span><span class="desc">Face recognition in PyTorch, based on the ArcFace paper</span><span class="go">GitHub ↗</span></a></li>
+        <li><a href="https://github.com/BenLubetzky/car_detection" target="_blank" rel="noopener"><span class="name">Car Detection</span><span class="desc">Detecting cars in road images with YOLO</span><span class="go">GitHub ↗</span></a></li>
+        <li><a href="https://github.com/BenLubetzky/brainMRI_tumor_detection" target="_blank" rel="noopener"><span class="name">Brain MRI Tumor Detection</span><span class="desc">Tumor classification on MRI scans with pretrained CNNs</span><span class="go">GitHub ↗</span></a></li>
       </ul>
     </div>
   </section>
@@ -166,7 +166,7 @@
         <div><dt>Backend</dt><dd>Python, FastAPI, REST APIs, SQLAlchemy, JWT auth</dd></div>
         <div><dt>Databases</dt><dd>PostgreSQL, pgvector, SQLite, Alembic migrations</dd></div>
         <div><dt>Tools &amp; deployment</dt><dd>Git, GitHub Actions, Docker, Render, Cloudflare</dd></div>
-        <div><dt>AI integrations</dt><dd>OpenAI API, RAG, embeddings, PyTorch</dd></div>
+        <div><dt>AI</dt><dd>OpenAI API, RAG, embeddings, PyTorch</dd></div>
       </dl>
     </div>
   </section>
@@ -177,8 +177,8 @@
       <h2>About</h2>
       <div>
         <div class="prose">
-          <p>I like owning the whole path of a feature: the schema and its migrations, the API, the interface people actually use, and the deployment, backups and auth around it.</p>
-          <p>When a product needs AI, I treat it as one more integration, not the whole product. The model extracts, retrieves or suggests; validation, permissions and business rules stay in code, and a person reviews whatever the system isn't sure about.</p>
+          <p>I'm studying Computer Science at the University of Porto and expect to graduate in September 2027.</p>
+          <p>Most of my projects are web apps with a Next.js frontend, a FastAPI backend and a PostgreSQL database, deployed on Render or Cloudflare. A few of them use the OpenAI API, for example to extract data from invoices or to answer questions from a store's policy documents.</p>
         </div>
 
         <ul class="timeline">
@@ -215,11 +215,11 @@
   <section class="section contact" id="contact">
     <div class="wrap">
       <h2>Looking for a junior full stack developer?</h2>
-      <p class="lede">I'm available immediately, based in Porto, and happy to talk.</p>
-      <a class="big" href="mailto:b0508181058@gmail.com">b0508181058@gmail.com</a>
+      <p class="lede">I'm based in Porto and available immediately.</p>
+      <a class="big" href="mailto:lubetzkyben@gmail.com">lubetzkyben@gmail.com</a>
       <div class="contact-list">
         <a href="tel:+351937217775">+351 937 217 775</a>
-        <a href="https://linkedin.com/in/ben-lubetzky-51782742a" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://linkedin.com/in/ben-lubetzky" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a href="https://github.com/BenLubetzky" target="_blank" rel="noopener">GitHub ↗</a>
         <a href="uploads/resume.pdf" target="_blank" rel="noopener">Résumé (PDF) ↗</a>
       </div>

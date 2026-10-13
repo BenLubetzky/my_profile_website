@@ -30,7 +30,7 @@
     <div class="wrap rise">
       <a class="back" href="../index.html#work">← All work</a>
       <h1>Research Paper Assistant</h1>
-      <p class="lede">Question answering over a library of computer-vision papers, with structure-aware chunking, hybrid retrieval, reranking and answers that cite their sources.</p>
+      <p class="lede">Ask a question about a set of computer-vision papers and get an answer based on passages from those papers, with citations to where each part came from.</p>
       <dl class="facts">
         <div><dt>Role</dt><dd>Developer</dd></div>
         <div><dt>Team</dt><dd>Solo</dd></div>
@@ -43,39 +43,30 @@
   <div class="wrap">
     <figure class="case-figure rise d1">
       <div class="shot"><img src="../assets/web/paper-assistant.webp" alt="Research Paper Assistant answering a question about DETR" width="1600" height="751"></div>
-      <figcaption>Asking a question across the paper library (here, what loss and matching strategy DETR uses) returns an answer grounded in retrieved passages.</figcaption>
+      <figcaption>Asking a question about the papers (here, about the DETR model) and getting an answer based on retrieved passages.</figcaption>
     </figure>
 
     <div class="case-body">
       <section class="case-section">
-        <h2>Problem</h2>
+        <h2>Overview</h2>
         <ul class="points">
-          <li>Papers break naive chunking: a fixed window cuts through equations, tables and figure captions, and the retrieved fragment then answers nothing.</li>
-          <li>For research questions, a plausible answer is worthless without the passage it came from.</li>
+          <li>A local RAG assistant for computer-vision research papers. It processes a small collection of PDFs, finds the passages most relevant to a question, and asks an OpenAI model to answer using only those passages, with citations.</li>
+          <li>It was built as a practical, understandable RAG pipeline rather than a production platform, with a simple FastAPI website for asking questions.</li>
         </ul>
       </section>
-
       <section class="case-section">
         <h2>What I built</h2>
         <ul class="points">
-          <li>PDF ingestion that follows document structure (sections, captions, references), so each chunk is a coherent piece of the paper.</li>
-          <li>Hybrid retrieval combining embeddings with keyword search, which keeps exact terms like model and dataset names findable.</li>
-          <li>Reranking on chunk metadata before the context is assembled, and answers returned with citations back to paper and section, served through FastAPI.</li>
+          <li>PDF processing: extracting and cleaning the text, removing references and acknowledgments, and splitting it into chunks that follow paragraphs and sections.</li>
+          <li>Search: embeddings stored in ChromaDB, combined with keyword search (BM25), then reranked before the best passages are sent to the model.</li>
+          <li>Answers: a prompt that limits the model to the retrieved passages, and citations you can hover to see the source text.</li>
+          <li>Automated tests for each stage, from PDF processing to the web endpoints.</li>
         </ul>
       </section>
-
-      <section class="case-section">
-        <h2>Key decisions</h2>
-        <ul class="points">
-          <li>Hybrid over embeddings-only retrieval: model names and metrics are the queries that matter most, and they're lexical.</li>
-          <li>No answer without a citation. If retrieval comes back empty, the system says so.</li>
-        </ul>
-      </section>
-
       <section class="case-section">
         <h2>Stack</h2>
         <ul class="stack-list">
-          <li>Python</li><li>FastAPI</li><li>Embeddings</li><li>Hybrid retrieval</li><li>ChromaDB</li><li>PDF parsing</li>
+          <li>Python</li><li>FastAPI</li><li>OpenAI API</li><li>RAG</li><li>ChromaDB</li><li>BM25</li>
         </ul>
       </section>
     </div>
@@ -88,7 +79,7 @@
 </main>
 
 <footer class="site-footer">
-  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:b0508181058@gmail.com">b0508181058@gmail.com</a></div>
+  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:lubetzkyben@gmail.com">lubetzkyben@gmail.com</a></div>
 </footer>
 
 <script>
