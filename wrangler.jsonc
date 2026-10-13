@@ -1,0 +1,9 @@
+{
+  // Cloudflare Workers config: serve this folder as a static site.
+  "name": "my-profile-website",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "assets": {
+    "directory": "."
+  }
+}
