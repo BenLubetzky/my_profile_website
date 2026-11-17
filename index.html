@@ -3,243 +3,403 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ben Lubetzky — Full Stack Developer</title>
-<meta name="description" content="Ben Lubetzky, junior full stack developer in Porto. Web apps with Next.js, FastAPI and PostgreSQL, some using the OpenAI API.">
+<title data-pt="Ben Lubetzky — Programador Full Stack">Ben Lubetzky — Full Stack Developer</title>
+<meta name="description" content="Ben Lubetzky, junior full stack developer in Porto. Web apps with Next.js, FastAPI and PostgreSQL, some using the OpenAI API." data-pt-content="Ben Lubetzky, programador full stack júnior no Porto. Aplicações web com Next.js, FastAPI e PostgreSQL, algumas com a API da OpenAI.">
+<meta name="theme-color" content="#050a07">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-base="" data-sparks="1">
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="#top">Ben Lubetzky</a>
-    <nav class="nav" aria-label="Main">
-      <a href="#work">Work</a>
-      <a href="#skills" class="hide-sm">Skills</a>
-      <a href="#about">About</a>
-      <a href="#contact" class="hide-sm">Contact</a>
-      <a href="uploads/resume.pdf" target="_blank" rel="noopener" class="nav-cta">Résumé ↗</a>
+  <div class="bar">
+    <a class="pill brand brand-pill" href="#top" aria-label="Ben Lubetzky, home"><span class="brand-mark">BL</span><span class="brand-name">Ben Lubetzky</span></a>
+    <nav class="pill nav" aria-label="Main" data-pt-aria-label="Principal">
+      <a href="#story" data-pt="Percurso">Story</a>
+      <a href="#stack">Stack</a>
+      <a href="#work" data-pt="Projetos">Work</a>
+      <a href="#principles" data-pt="Princípios">Principles</a>
+      <a href="contact.html" data-pt="Contacto">Contact</a>
     </nav>
+    <div class="pill tools">
+      <button class="icon-btn" type="button" data-search aria-label="Search" data-pt-aria-label="Pesquisar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span class="kbd" data-mod>Ctrl K</span>
+      </button>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+      <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+    <a class="pill cta-pill" href="contact.html"><span data-pt="Fala comigo">Talk to me</span><span class="dot pulse" aria-hidden="true"></span></a>
   </div>
 </header>
 
+<div class="drawer" aria-label="Menu">
+  <button class="icon-btn close" type="button" aria-label="Close menu" data-pt-aria-label="Fechar menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <nav>
+    <a href="#story" data-pt="Percurso">Story</a>
+    <a href="#stack">Stack</a>
+    <a href="#work" data-pt="Projetos">Work</a>
+    <a href="#principles" data-pt="Princípios">Principles</a>
+    <a href="contact.html" data-pt="Contacto">Contact</a>
+    <a href="uploads/resume.pdf" target="_blank" rel="noopener" data-pt="Currículo ↗">Résumé ↗</a>
+  </nav>
+</div>
+
 <main id="top">
 
-  <!-- Hero -->
-  <section class="hero">
+  <!-- ============ Hero ============ -->
+  <section class="hero" data-shape="tree">
     <div class="wrap">
-      <div class="rise">
-        <div class="status"><span class="dot" aria-hidden="true"></span>Junior full stack developer · Porto · Available immediately</div>
-        <h1>I build web apps <span class="soft">with Next.js, FastAPI and PostgreSQL.</span></h1>
-        <p class="lede">I'm a Computer Science student at the University of Porto, looking for a junior full stack role. My projects cover the frontend, the backend and the database, and some of them use LLMs through the OpenAI API.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#work">See my work</a>
-          <a class="btn btn-secondary" href="uploads/resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
-        </div>
-        <div class="social">
-          <a href="https://github.com/BenLubetzky" target="_blank" rel="noopener">GitHub ↗</a>
-          <a href="https://linkedin.com/in/ben-lubetzky" target="_blank" rel="noopener">LinkedIn ↗</a>
-          <a href="mailto:lubetzkyben@gmail.com">Email</a>
-        </div>
+      <div class="hero-top" data-reveal>
+        <span class="eyebrow"><span class="dot ok pulse" aria-hidden="true"></span><span data-pt="Disponível · Porto · Full stack júnior">Available · Porto · Junior full stack</span></span>
+        <a class="announce" href="work/support-agent.html"><b data-pt="Em destaque">Featured</b> <span data-pt="Agente de apoio ao cliente — regras no código, não no prompt">Customer Support Agent — rules in code, not in the prompt</span> <span class="chev" aria-hidden="true">›</span></a>
       </div>
-      <div class="portrait rise d1">
-        <img src="assets/web/ben.webp" alt="Portrait of Ben Lubetzky" width="900" height="900">
+
+      <h1 data-reveal="2">Ben<span class="l2">Lubetzky</span></h1>
+      <p class="role" data-reveal="3" data-typed="full stack developer" data-typed-pt="programador full stack"><span class="slash">/</span><span class="out">full stack developer</span><span class="caret" aria-hidden="true"></span></p>
+
+      <div class="hero-grid">
+        <div data-reveal="3">
+          <p class="lede" data-pt="Estudo <b>Ciência de Computadores na Universidade do Porto</b> e procuro uma posição como programador full stack júnior. Construo aplicações web de ponta a ponta — <b>Next.js</b> no frontend, <b>FastAPI</b> e <b>PostgreSQL</b> no backend — e algumas usam LLMs através da API da OpenAI.">I'm studying <b>Computer Science at the University of Porto</b> and looking for a junior full stack role. I build web apps end to end — <b>Next.js</b> on the front, <b>FastAPI</b> and <b>PostgreSQL</b> behind it — and some of them use LLMs through the OpenAI API.</p>
+          <div class="actions">
+            <a class="btn btn-glow" href="#work"><span data-pt="Ver projetos">See the work</span> <span class="arrow down" aria-hidden="true">↓</span></a>
+            <a class="btn" href="uploads/resume.pdf" target="_blank" rel="noopener"><span data-pt="Currículo">Résumé</span> <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn btn-text" href="https://github.com/BenLubetzky" target="_blank" rel="noopener">GitHub <span class="arrow" aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <div class="glance" data-reveal="4">
+          <div class="eyebrow" data-pt="Em resumo">At a glance</div>
+          <div class="stats">
+            <div><div class="n">3</div><div class="l" data-pt="Apps online">Live apps</div></div>
+            <div><div class="n">8</div><div class="l" data-pt="Projetos no GitHub">Projects on GitHub</div></div>
+            <div><div class="n">5</div><div class="l" data-pt="Línguas faladas">Languages spoken</div></div>
+            <div><div class="n">2027</div><div class="l" data-pt="Fim da licenciatura">Graduating</div></div>
+          </div>
+        </div>
       </div>
     </div>
+    <p class="hint" aria-hidden="true" data-pt="Cada pirilampo é um projeto. Passa o rato por cima.">Every firefly is a project. Hover one.</p>
   </section>
 
-  <!-- Work -->
-  <section class="section" id="work">
-    <div class="wrap">
-      <div class="section-head">
-        <h2>Selected work</h2>
-        <p>Each one has a live demo.</p>
-      </div>
-
-      <article class="project">
-        <a class="shot-link" href="work/bookmatch.html" aria-label="BookMatch case study">
-          <div class="shot crop"><img src="assets/web/bookmatch-main_page.webp" alt="BookMatch swipe screen showing a book card with pass and save buttons" loading="lazy" width="1600" height="753"></div>
-        </a>
-        <div>
-          <div class="meta">Lead developer · Team of 2 · Live</div>
-          <h3><a href="work/bookmatch.html">BookMatch</a></h3>
-          <p class="summary">A book discovery platform that learns each reader's taste from swipes and refines recommendations in real time, with genre-based discovery, search and a personal library with ratings and notes.</p>
-          <ul class="points">
-            <li>Next.js swipe interface on an async FastAPI + PostgreSQL API, with JWT auth and a 5-language UI</li>
-            <li>Recommendation engine built on pgvector KNN search</li>
-            <li>20+ migrations, row-level security and nightly backups via GitHub Actions</li>
-          </ul>
-          <p class="stack">Next.js · TypeScript · Tailwind CSS · FastAPI · PostgreSQL · pgvector · GitHub Actions</p>
-          <div class="links">
-            <a class="link" href="work/bookmatch.html">Case study →</a>
-            <a class="link" href="https://bookmatch-59t.pages.dev/" target="_blank" rel="noopener">Live ↗</a>
-            <a class="link" href="https://github.com/BenLubetzky/BookMatch" target="_blank" rel="noopener">Code ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="project">
-        <a class="shot-link" href="work/ledgerdrop.html" aria-label="LedgerDrop case study">
-          <div class="shot crop"><img src="assets/web/ledgerdrop-upload.webp" alt="LedgerDrop invoice workspace with an upload area and a recent documents list" loading="lazy" width="1500" height="895"></div>
-        </a>
-        <div>
-          <div class="meta">Solo · Live</div>
-          <h3><a href="work/ledgerdrop.html">LedgerDrop</a></h3>
-          <p class="summary">An invoice-processing platform that extracts structured data from uploaded PDFs and validates it automatically. Uncertain results are routed to a human review workflow.</p>
-          <ul class="points">
-            <li>Async FastAPI pipeline, with data extraction through the OpenAI API</li>
-            <li>Next.js review screen to approve, reject or correct the data, with an audit trail</li>
-            <li>Deployed with Docker on Render, files stored in Cloudflare R2</li>
-          </ul>
-          <p class="stack">FastAPI · SQLAlchemy · PostgreSQL · Next.js · TypeScript · Docker · Render · OpenAI API</p>
-          <div class="links">
-            <a class="link" href="work/ledgerdrop.html">Case study →</a>
-            <a class="link" href="https://ledgerdrop-frontend-staging.onrender.com/" target="_blank" rel="noopener">Live ↗</a>
-            <a class="link" href="https://github.com/BenLubetzky/LedgeDrop" target="_blank" rel="noopener">Code ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="project">
-        <a class="shot-link" href="work/support-agent.html" aria-label="Customer Support Agent case study">
-          <div class="shot crop"><img src="assets/web/support-demo.webp" alt="Customer support demo with test scenarios on the left and a chat window on the right" loading="lazy" width="1600" height="845"></div>
-        </a>
-        <div>
-          <div class="meta">Solo · Live</div>
-          <h3><a href="work/support-agent.html">Customer Support Agent</a></h3>
-          <p class="summary">An AI-powered support assistant for a fictional online store, handling order tracking, cancellations and returns, answering policy questions from the store's documentation and escalating complex cases to a human agent.</p>
-          <ul class="points">
-            <li>FastAPI backend where the assistant handles orders through typed tools</li>
-            <li>Refund rules stay in code, not in the prompt</li>
-            <li>Policy questions answered from the store's documentation with RAG</li>
-          </ul>
-          <p class="stack">Python · FastAPI · OpenAI API · RAG · ChromaDB · SQLite · Docker</p>
-          <div class="links">
-            <a class="link" href="work/support-agent.html">Case study →</a>
-            <a class="link" href="https://customer-support-assistant-28ki.onrender.com/" target="_blank" rel="noopener">Live ↗</a>
-            <a class="link" href="https://github.com/BenLubetzky/Customer_support_assistant" target="_blank" rel="noopener">Code ↗</a>
-          </div>
-        </div>
-      </article>
-
-      <h3 class="subhead">More projects</h3>
-      <div class="cards">
-        <div class="card">
-          <div class="meta">RAG · Runs locally</div>
-          <h4>Research Paper Assistant</h4>
-          <p>A local RAG assistant: ask a question about a set of computer-vision papers and get an answer with citations to the passages it used.</p>
-          <p class="stack">Python · FastAPI · ChromaDB · OpenAI API</p>
-          <div class="links">
-            <a class="link" href="work/paper-assistant.html">Case study →</a>
-            <a class="link" href="https://github.com/BenLubetzky/Computer_Vision_Paper_Research_Assistant" target="_blank" rel="noopener">Code ↗</a>
-          </div>
-        </div>
-        <div class="card">
-          <div class="meta">Frontend · Web app</div>
-          <h4>Spanish Learning Website</h4>
-          <p>A flashcard app for learning Spanish vocabulary, with typed answers, pronunciation and progress tracking.</p>
-          <p class="stack">JavaScript · Web Speech API · Local storage</p>
-          <div class="links">
-            <a class="link" href="work/spanish.html">Case study →</a>
-            <a class="link" href="https://github.com/BenLubetzky/Spanish-Learning-Website" target="_blank" rel="noopener">Code ↗</a>
-          </div>
-        </div>
-      </div>
-
-      <h3 class="subhead">Earlier work · machine learning</h3>
-      <ul class="archive">
-        <li><a href="https://github.com/BenLubetzky/face_recognition_arcface" target="_blank" rel="noopener"><span class="name">ArcFace Face Recognition</span><span class="desc">Face recognition in PyTorch, based on the ArcFace paper</span><span class="go">GitHub ↗</span></a></li>
-        <li><a href="https://github.com/BenLubetzky/car_detection" target="_blank" rel="noopener"><span class="name">Car Detection</span><span class="desc">Detecting cars in road images with YOLO</span><span class="go">GitHub ↗</span></a></li>
-        <li><a href="https://github.com/BenLubetzky/brainMRI_tumor_detection" target="_blank" rel="noopener"><span class="name">Brain MRI Tumor Detection</span><span class="desc">Tumor classification on MRI scans with pretrained CNNs</span><span class="go">GitHub ↗</span></a></li>
-      </ul>
+  <!-- ============ Marquee ============ -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>BookMatch <i>·</i></span><span>LedgerDrop <i>·</i></span><span>Customer Support Agent <i>·</i></span><span>Research Paper Assistant <i>·</i></span><span>Spanish Learning <i>·</i></span><span>ArcFace <i>·</i></span><span>Car Detection <i>·</i></span><span>Brain MRI <i>·</i></span>
+      <span>BookMatch <i>·</i></span><span>LedgerDrop <i>·</i></span><span>Customer Support Agent <i>·</i></span><span>Research Paper Assistant <i>·</i></span><span>Spanish Learning <i>·</i></span><span>ArcFace <i>·</i></span><span>Car Detection <i>·</i></span><span>Brain MRI <i>·</i></span>
     </div>
-  </section>
+  </div>
 
-  <!-- Skills -->
-  <section class="section" id="skills">
-    <div class="wrap split">
-      <h2>Skills</h2>
-      <dl class="skills">
-        <div><dt>Frontend</dt><dd>TypeScript, JavaScript, React, Next.js, Tailwind CSS</dd></div>
-        <div><dt>Backend</dt><dd>Python, FastAPI, REST APIs, SQLAlchemy, JWT auth</dd></div>
-        <div><dt>Databases</dt><dd>PostgreSQL, pgvector, SQLite, Alembic migrations</dd></div>
-        <div><dt>Tools &amp; deployment</dt><dd>Git, GitHub Actions, Docker, Render, Cloudflare</dd></div>
-        <div><dt>AI</dt><dd>OpenAI API, RAG, embeddings, PyTorch</dd></div>
+  <!-- ============ Info cells ============ -->
+  <section class="cells-section">
+    <div class="wrap">
+      <dl class="cells" data-reveal>
+        <div><dt data-pt="Baseado em">Based in</dt><dd>Porto, Portugal</dd></div>
+        <div><dt data-pt="A estudar">Studying</dt><dd data-pt="Ciência de Computadores<small>FCUP · conclusão em set. 2027</small>">BSc Computer Science<small>FCUP · graduating Sept 2027</small></dd></div>
+        <div><dt data-pt="Em destaque">Featured build</dt><dd><a href="work/bookmatch.html">BookMatch</a><small data-pt="Recomendações com pgvector">Recommendations with pgvector</small></dd></div>
+        <div><dt data-pt="Escreve sobretudo">Mostly writes</dt><dd>TypeScript, Python, SQL</dd></div>
+        <div><dt data-pt="Fala">Speaks</dt><dd data-pt="Hebraico, inglês, português, francês, espanhol">Hebrew, English, Portuguese, French, Spanish</dd></div>
       </dl>
     </div>
   </section>
 
-  <!-- About -->
-  <section class="section about" id="about">
-    <div class="wrap split">
-      <h2>About</h2>
-      <div>
-        <div class="prose">
-          <p>I'm studying Computer Science at the University of Porto and expect to graduate in September 2027.</p>
-          <p>Most of my projects are web apps with a Next.js frontend, a FastAPI backend and a PostgreSQL database, deployed on Render or Cloudflare. A few of them use the OpenAI API, for example to extract data from invoices or to answer questions from a store's policy documents.</p>
-        </div>
-
-        <ul class="timeline">
-          <li>
-            <span class="what">BSc Computer Science</span>
-            <span class="where">University of Porto (FCUP)</span>
-            <span class="when">2024 – Sept 2027 (expected)</span>
-            <span class="note">Coursework: Databases, Data Structures, Algorithms, Computer Networks</span>
-          </li>
-          <li>
-            <span class="what">Deep Learning Specialization</span>
-            <span class="where">DeepLearning.AI · Coursera</span>
-            <span class="when">Jan 2026</span>
-          </li>
-          <li>
-            <span class="what">Computer Science coursework</span>
-            <span class="where">Open University of Israel</span>
-            <span class="when">2023 – 2024</span>
-          </li>
-        </ul>
-
-        <div class="languages" aria-label="Languages">
-          <div>Hebrew<span>Native</span></div>
-          <div>English<span>Native</span></div>
-          <div>Portuguese<span>C1</span></div>
-          <div>French<span>B1</span></div>
-          <div>Spanish<span>B1</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section class="section contact" id="contact">
+  <!-- ============ 01 Story ============ -->
+  <section class="section" id="story">
+    <div class="progress-rail" aria-hidden="true"><i></i></div>
     <div class="wrap">
-      <h2>Looking for a junior full stack developer?</h2>
-      <p class="lede">I'm based in Porto and available immediately.</p>
-      <a class="big" href="mailto:lubetzkyben@gmail.com">lubetzkyben@gmail.com</a>
-      <div class="contact-list">
-        <a href="tel:+351937217775">+351 937 217 775</a>
-        <a href="https://linkedin.com/in/ben-lubetzky" target="_blank" rel="noopener">LinkedIn ↗</a>
-        <a href="https://github.com/BenLubetzky" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="uploads/resume.pdf" target="_blank" rel="noopener">Résumé (PDF) ↗</a>
+      <div class="story-intro" data-shape="moon" data-shape-pos="mid">
+        <div class="section-head" style="margin-bottom:0">
+          <div class="eyebrow" data-reveal><span class="idx">01 —</span> <span data-pt="Raízes">Roots</span></div>
+          <h2 class="h2 two-tone" data-reveal="2"><span data-pt="A versão curta de">The short version of</span><br><span class="soft" data-pt="como cheguei aqui">how I got here</span></h2>
+        </div>
+        <figure class="portrait-card" data-reveal="3" style="margin:0">
+          <img src="assets/web/ben.webp" alt="Portrait of Ben Lubetzky" data-pt-alt="Retrato de Ben Lubetzky" width="900" height="900" loading="lazy">
+          <figcaption><span>Ben Lubetzky</span><span>Porto</span></figcaption>
+        </figure>
+      </div>
+
+      <article class="chapter" data-shape="sprout">
+        <div class="chapter-body">
+          <div class="eyebrow" data-reveal data-pt="Capítulo 1 de 5">Chapter 1 of 5</div>
+          <h3 data-reveal="2">2023</h3>
+          <h4 data-reveal="2" data-pt="Os primeiros cursos">The first courses</h4>
+          <p class="sum" data-reveal="3" data-pt="Disciplinas de Ciência da Computação na Open University of Israel, de 2023 a 2024.">Computer Science coursework at the Open University of Israel, from 2023 to 2024.</p>
+          <p class="more" data-reveal="3" data-pt="Foi aqui que confirmei que queria fazer disto a minha área, e o passo seguinte foi uma licenciatura completa.">This is where I confirmed that this was the field I wanted, and the next step was a full degree.</p>
+        </div>
+      </article>
+
+      <article class="chapter" data-shape="roots">
+        <div class="chapter-body">
+          <div class="eyebrow" data-reveal data-pt="Capítulo 2 de 5">Chapter 2 of 5</div>
+          <h3 data-reveal="2">2024</h3>
+          <h4 data-reveal="2" data-pt="Licenciatura no Porto">A degree in Porto</h4>
+          <p class="sum" data-reveal="3" data-pt="Comecei a licenciatura em Ciência de Computadores na Universidade do Porto (FCUP).">Started a BSc in Computer Science at the University of Porto (FCUP).</p>
+          <p class="more" data-reveal="3" data-pt="Disciplinas como <b>bases de dados, estruturas de dados, algoritmos e redes de computadores</b> — a base de tudo o que construo hoje.">Coursework in <b>databases, data structures, algorithms and computer networks</b> — the foundation under everything I build now.</p>
+        </div>
+      </article>
+
+      <article class="chapter" data-shape="leaf">
+        <div class="chapter-body">
+          <div class="eyebrow" data-reveal data-pt="Capítulo 3 de 5">Chapter 3 of 5</div>
+          <h3 data-reveal="2">Machine learning</h3>
+          <h4 data-reveal="2" data-pt="Os primeiros projetos">The first projects</h4>
+          <p class="sum" data-reveal="3" data-pt="Reconhecimento facial em PyTorch com base no artigo ArcFace, deteção de carros com YOLO e classificação de tumores em ressonâncias magnéticas.">Face recognition in PyTorch based on the ArcFace paper, car detection with YOLO, and tumor classification on brain MRI scans.</p>
+          <p class="more" data-reveal="3" data-pt="Em janeiro de 2026 concluí a <b>Deep Learning Specialization</b> da DeepLearning.AI.">In January 2026 I completed the <b>Deep Learning Specialization</b> from DeepLearning.AI.</p>
+        </div>
+      </article>
+
+      <article class="chapter" data-shape="tree">
+        <div class="chapter-body">
+          <div class="eyebrow" data-reveal data-pt="Capítulo 4 de 5">Chapter 4 of 5</div>
+          <h3 data-reveal="2" data-pt="Agora">Now</h3>
+          <h4 data-reveal="2" data-pt="Full stack, de ponta a ponta">Full stack, end to end</h4>
+          <p class="sum" data-reveal="3" data-pt="Aplicações web com frontend em Next.js, backend em FastAPI e base de dados PostgreSQL, publicadas no Render ou na Cloudflare.">Web apps with a Next.js frontend, a FastAPI backend and a PostgreSQL database, deployed on Render or Cloudflare.</p>
+          <p class="more" data-reveal="3" data-pt="Algumas usam a API da OpenAI — para extrair dados de faturas, ou para responder a perguntas a partir da documentação de uma loja. O que aprendi em ML ajuda-me a saber onde um modelo encaixa e onde não encaixa.">A few use the OpenAI API — to extract data from invoices, or to answer questions from a store's policy documents. The ML background helps me judge where a model fits and where it doesn't.</p>
+        </div>
+      </article>
+
+      <article class="chapter" data-shape="forest">
+        <div class="chapter-body">
+          <div class="eyebrow" data-reveal data-pt="Capítulo 5 de 5">Chapter 5 of 5</div>
+          <h3 data-reveal="2">2027</h3>
+          <h4 data-reveal="2" data-pt="O que vem a seguir">What's next</h4>
+          <p class="sum" data-reveal="3" data-pt="Termino a licenciatura em setembro de 2027. Até lá, procuro uma posição como programador full stack júnior.">I graduate in September 2027. Until then, I'm looking for a junior full stack role.</p>
+          <p class="more" data-reveal="3" data-pt="Estou no Porto e disponível de imediato.">I'm based in Porto and available immediately.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ 02 Stack ============ -->
+  <section class="section" id="stack" data-shape="rings">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-reveal><span class="idx">02 —</span> <span data-pt="Ferramentas">Toolset</span></div>
+        <h2 class="h2 two-tone" data-reveal="2"><span data-pt="O que realmente">What I actually</span><br><span class="soft" data-pt="uso">reach for</span></h2>
+        <p class="sub" data-reveal="3" data-pt="Uma lista honesta, não um mural de logótipos. Aponta para uma tecnologia para ver em que projetos a usei.">An honest ranking, not a wall of logos. Point at one to see which projects it shipped in.</p>
+      </div>
+
+      <div class="stack-grid">
+        <div>
+          <div class="tier t1" data-reveal>
+            <div class="eyebrow"><b data-pt="Principal">Core</b> <span data-pt="— uso diário, conhecimento profundo">— daily drivers, deep knowledge</span></div>
+            <div class="skill-list">
+              <span class="skill" data-projects="bookmatch,ledgerdrop">TypeScript</span>
+              <span class="skill" data-projects="bookmatch,ledgerdrop,support,paper,arcface,car,mri">Python</span>
+              <span class="skill" data-projects="bookmatch,ledgerdrop">Next.js</span>
+              <span class="skill" data-projects="bookmatch,ledgerdrop,support,paper">FastAPI</span>
+              <span class="skill" data-projects="bookmatch,ledgerdrop">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="tier t2" data-reveal>
+            <div class="eyebrow"><b data-pt="Forte">Strong</b> <span data-pt="— uso frequente, sem fricção">— used constantly, no friction</span></div>
+            <div class="skill-list">
+              <span class="skill" data-projects="bookmatch,ledgerdrop">React</span>
+              <span class="skill" data-projects="spanish">JavaScript</span>
+              <span class="skill" data-projects="bookmatch">Tailwind CSS</span>
+              <span class="skill" data-projects="ledgerdrop">SQLAlchemy</span>
+              <span class="skill" data-projects="ledgerdrop,support">Docker</span>
+              <span class="skill" data-projects="ledgerdrop,support,paper">OpenAI API</span>
+            </div>
+          </div>
+          <div class="tier t3" data-reveal>
+            <div class="eyebrow"><b data-pt="Prático">Working knowledge</b> <span data-pt="— usado em projetos reais">— used in real projects</span></div>
+            <div class="skill-list">
+              <span class="skill" data-projects="bookmatch">pgvector</span>
+              <span class="skill" data-projects="support,paper">RAG</span>
+              <span class="skill" data-projects="support,paper">ChromaDB</span>
+              <span class="skill" data-projects="support">SQLite</span>
+              <span class="skill" data-projects="bookmatch">GitHub Actions</span>
+              <span class="skill" data-projects="bookmatch,ledgerdrop">Cloudflare</span>
+              <span class="skill" data-projects="arcface">PyTorch</span>
+            </div>
+          </div>
+        </div>
+        <aside class="where" aria-live="polite" data-reveal="2">
+          <div class="eyebrow" data-pt="Onde foi usado">Where it shipped</div>
+          <div class="name"></div>
+          <ul></ul>
+          <p class="empty" data-pt="Aponta para uma tecnologia.">Point at a technology.</p>
+        </aside>
       </div>
     </div>
   </section>
 
+  <!-- ============ 03 Work ============ -->
+  <section class="section" id="work" data-shape="hills" data-shape-pos="center">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-reveal><span class="idx">03 —</span> <span data-pt="Selecionados">Selected</span></div>
+        <h2 class="h2 two-tone" data-reveal="2"><span data-pt="Coisas que">Things I've</span><br><span class="soft" data-pt="realmente lancei">actually shipped</span></h2>
+        <p class="sub" data-reveal="3" data-pt="Cada projeto em destaque tem uma demo online e o código aberto no GitHub.">Each featured project has a live demo and its code open on GitHub.</p>
+      </div>
+
+      <article class="feature" data-reveal>
+        <a class="shot-wrap" href="work/bookmatch.html" aria-label="BookMatch case study" data-pt-aria-label="Caso de estudo BookMatch">
+          <div class="browser"><div class="chrome"><i></i><i></i><i></i><span>bookmatch.pages.dev</span></div><img src="assets/web/bookmatch-main_page.webp" alt="BookMatch swipe screen showing a book card with pass and save buttons" width="1600" height="753" loading="lazy"></div>
+        </a>
+        <div class="feature-body">
+          <div class="top"><span class="num">01</span><span class="status-tag"><span class="dot ok" aria-hidden="true"></span><span data-pt="Online">Live</span></span></div>
+          <h3><a href="work/bookmatch.html">BookMatch</a></h3>
+          <div class="meta" data-pt="Programador principal · Equipa de 2">Lead developer · Team of 2</div>
+          <p class="summary" data-pt="Uma plataforma de descoberta de livros que aprende o gosto de cada leitor a partir dos swipes e ajusta as recomendações em tempo real.">A book discovery platform that learns each reader's taste from swipes and refines recommendations in real time.</p>
+          <ul class="points">
+            <li data-pt="Interface de swipe em Next.js sobre uma API assíncrona FastAPI + PostgreSQL, com autenticação JWT e interface em 5 línguas">Next.js swipe interface on an async FastAPI + PostgreSQL API, with JWT auth and a 5-language UI</li>
+            <li data-pt="Motor de recomendações com pesquisa KNN em pgvector">Recommendation engine built on pgvector KNN search</li>
+            <li data-pt="Mais de 20 migrações, row-level security e backups noturnos com GitHub Actions">20+ migrations, row-level security and nightly backups via GitHub Actions</li>
+          </ul>
+          <div class="chips"><span class="chip">Next.js</span><span class="chip">TypeScript</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">pgvector</span></div>
+          <div class="links">
+            <a class="link" href="work/bookmatch.html"><span data-pt="Caso de estudo">Case study</span> →</a>
+            <a class="link" href="https://bookmatch-59t.pages.dev/" target="_blank" rel="noopener">Live ↗</a>
+            <a class="link" href="https://github.com/BenLubetzky/BookMatch" target="_blank" rel="noopener"><span data-pt="Código">Code</span> ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature flip" data-reveal>
+        <a class="shot-wrap" href="work/ledgerdrop.html" aria-label="LedgerDrop case study" data-pt-aria-label="Caso de estudo LedgerDrop">
+          <div class="browser"><div class="chrome"><i></i><i></i><i></i><span>ledgerdrop · onrender.com</span></div><img src="assets/web/ledgerdrop-upload.webp" alt="LedgerDrop invoice workspace with an upload area and a recent documents list" width="1500" height="895" loading="lazy"></div>
+        </a>
+        <div class="feature-body">
+          <div class="top"><span class="num">02</span><span class="status-tag"><span class="dot ok" aria-hidden="true"></span><span data-pt="Online">Live</span></span></div>
+          <h3><a href="work/ledgerdrop.html">LedgerDrop</a></h3>
+          <div class="meta" data-pt="Sozinho · Full stack">Solo · Full stack</div>
+          <p class="summary" data-pt="Uma plataforma de processamento de faturas que extrai dados estruturados de PDFs e os valida automaticamente. Os resultados incertos vão para revisão humana.">An invoice-processing platform that extracts structured data from uploaded PDFs and validates it automatically. Uncertain results go to a human review workflow.</p>
+          <ul class="points">
+            <li data-pt="Pipeline assíncrono em FastAPI, com extração de dados através da API da OpenAI">Async FastAPI pipeline, with data extraction through the OpenAI API</li>
+            <li data-pt="Ecrã de revisão em Next.js para aprovar, rejeitar ou corrigir os dados, com histórico de auditoria">Next.js review screen to approve, reject or correct the data, with an audit trail</li>
+            <li data-pt="Publicado com Docker no Render, ficheiros guardados no Cloudflare R2">Deployed with Docker on Render, files stored in Cloudflare R2</li>
+          </ul>
+          <div class="chips"><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">Next.js</span><span class="chip">Docker</span><span class="chip">OpenAI API</span></div>
+          <div class="links">
+            <a class="link" href="work/ledgerdrop.html"><span data-pt="Caso de estudo">Case study</span> →</a>
+            <a class="link" href="https://ledgerdrop-frontend-staging.onrender.com/" target="_blank" rel="noopener">Live ↗</a>
+            <a class="link" href="https://github.com/BenLubetzky/LedgeDrop" target="_blank" rel="noopener"><span data-pt="Código">Code</span> ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature" data-reveal>
+        <a class="shot-wrap" href="work/support-agent.html" aria-label="Customer Support Agent case study" data-pt-aria-label="Caso de estudo do agente de apoio ao cliente">
+          <div class="browser"><div class="chrome"><i></i><i></i><i></i><span>support-assistant · onrender.com</span></div><img src="assets/web/support-demo.webp" alt="Customer support demo with test scenarios on the left and a chat window on the right" width="1600" height="845" loading="lazy"></div>
+        </a>
+        <div class="feature-body">
+          <div class="top"><span class="num">03</span><span class="status-tag"><span class="dot ok" aria-hidden="true"></span><span data-pt="Online">Live</span></span></div>
+          <h3><a href="work/support-agent.html" data-pt="Agente de apoio ao cliente">Customer Support Agent</a></h3>
+          <div class="meta" data-pt="Sozinho · Backend · IA">Solo · Backend · AI</div>
+          <p class="summary" data-pt="Um assistente de apoio para uma loja online fictícia: acompanha encomendas, trata cancelamentos e devoluções, responde a perguntas sobre as políticas da loja e passa os casos complexos a uma pessoa.">An AI support assistant for a fictional online store: it tracks orders, handles cancellations and returns, answers policy questions from the store's documentation and escalates complex cases to a person.</p>
+          <ul class="points">
+            <li data-pt="Backend em FastAPI onde o assistente trata as encomendas através de ferramentas tipadas">FastAPI backend where the assistant handles orders through typed tools</li>
+            <li data-pt="As regras de reembolso ficam no código, não no prompt">Refund rules stay in code, not in the prompt</li>
+            <li data-pt="Perguntas sobre políticas respondidas a partir da documentação com RAG">Policy questions answered from the store's documentation with RAG</li>
+          </ul>
+          <div class="chips"><span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">OpenAI API</span><span class="chip">RAG</span><span class="chip">ChromaDB</span></div>
+          <div class="links">
+            <a class="link" href="work/support-agent.html"><span data-pt="Caso de estudo">Case study</span> →</a>
+            <a class="link" href="https://customer-support-assistant-28ki.onrender.com/" target="_blank" rel="noopener">Live ↗</a>
+            <a class="link" href="https://github.com/BenLubetzky/Customer_support_assistant" target="_blank" rel="noopener"><span data-pt="Código">Code</span> ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="index-head" data-reveal>
+        <h3 data-pt="Todos os projetos">Every project</h3>
+        <div class="filters" role="group" aria-label="Filter projects" data-pt-aria-label="Filtrar projetos">
+          <button type="button" data-filter="all" aria-pressed="true" data-pt="Todos">All</button>
+          <button type="button" data-filter="fullstack" aria-pressed="false">Full stack</button>
+          <button type="button" data-filter="ai" aria-pressed="false" data-pt="IA">AI</button>
+          <button type="button" data-filter="frontend" aria-pressed="false">Frontend</button>
+          <button type="button" data-filter="ml" aria-pressed="false">Machine learning</button>
+        </div>
+      </div>
+      <div class="index-meta"><span class="dot ok" aria-hidden="true"></span><span><span data-count>8</span> <span data-pt="projetos · os casos de estudo abrem aqui, o resto no GitHub">projects · case studies open here, the rest on GitHub</span></span></div>
+      <ol class="index">
+        <li data-cat="fullstack ai"><a href="work/bookmatch.html"><span class="no">01</span><span class="nm">BookMatch</span><span class="cat" data-pt="Full stack · Recomendações">Full stack · Recommendations</span><span class="st">Next.js · FastAPI · pgvector</span><span class="go" data-pt="Caso →">Case →</span></a></li>
+        <li data-cat="fullstack ai"><a href="work/ledgerdrop.html"><span class="no">02</span><span class="nm">LedgerDrop</span><span class="cat" data-pt="Full stack · IA">Full stack · AI</span><span class="st">FastAPI · Next.js · OpenAI</span><span class="go" data-pt="Caso →">Case →</span></a></li>
+        <li data-cat="ai"><a href="work/support-agent.html"><span class="no">03</span><span class="nm" data-pt="Agente de apoio ao cliente">Customer Support Agent</span><span class="cat" data-pt="Backend · IA">Backend · AI</span><span class="st">FastAPI · RAG · ChromaDB</span><span class="go" data-pt="Caso →">Case →</span></a></li>
+        <li data-cat="ai"><a href="work/paper-assistant.html"><span class="no">04</span><span class="nm" data-pt="Assistente de artigos científicos">Research Paper Assistant</span><span class="cat" data-pt="RAG · Corre localmente">RAG · Runs locally</span><span class="st">FastAPI · ChromaDB · BM25</span><span class="go" data-pt="Caso →">Case →</span></a></li>
+        <li data-cat="frontend"><a href="work/spanish.html"><span class="no">05</span><span class="nm" data-pt="Site para aprender espanhol">Spanish Learning Website</span><span class="cat" data-pt="Frontend · App web">Frontend · Web app</span><span class="st">JavaScript · Web Speech API</span><span class="go" data-pt="Caso →">Case →</span></a></li>
+        <li data-cat="ml"><a href="https://github.com/BenLubetzky/face_recognition_arcface" target="_blank" rel="noopener"><span class="no">06</span><span class="nm">ArcFace Face Recognition</span><span class="cat" data-pt="ML · Reconhecimento facial">ML · Face recognition</span><span class="st">PyTorch</span><span class="go">GitHub ↗</span></a></li>
+        <li data-cat="ml"><a href="https://github.com/BenLubetzky/car_detection" target="_blank" rel="noopener"><span class="no">07</span><span class="nm">Car Detection</span><span class="cat" data-pt="ML · Deteção de objetos">ML · Object detection</span><span class="st">YOLO</span><span class="go">GitHub ↗</span></a></li>
+        <li data-cat="ml"><a href="https://github.com/BenLubetzky/brainMRI_tumor_detection" target="_blank" rel="noopener"><span class="no">08</span><span class="nm">Brain MRI Tumor Detection</span><span class="cat" data-pt="ML · Imagem médica">ML · Medical imaging</span><span class="st" data-pt="CNNs pré-treinadas">Pretrained CNNs</span><span class="go">GitHub ↗</span></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 04 Principles ============ -->
+  <section class="section" id="principles" data-shape="roots">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow" data-reveal><span class="idx">04 —</span> <span data-pt="Princípios">Principles</span></div>
+        <h2 class="h2 two-tone" data-reveal="2"><span data-pt="Como">How I</span><br><span class="soft" data-pt="construo">build things</span></h2>
+      </div>
+      <div class="principles">
+        <div class="principle" data-reveal>
+          <span class="no">01</span>
+          <h3 data-pt="As regras ficam no código">Rules belong in code</h3>
+          <p data-pt="O modelo escolhe que ferramenta usar, mas os limites de reembolso são verificados em Python. Nenhum prompt consegue contorná-los.">The model decides which tool to call, but refund limits are checked in Python. No prompt can talk its way past them.</p>
+          <p class="from"><span data-pt="Em">In</span> <a href="work/support-agent.html" data-pt="Agente de apoio ao cliente">Customer Support Agent</a></p>
+        </div>
+        <div class="principle" data-reveal="2">
+          <span class="no">02</span>
+          <h3 data-pt="O que é incerto, uma pessoa revê">People review what's uncertain</h3>
+          <p data-pt="Quando a extração não tem certeza, o resultado vai para um ecrã de revisão com histórico de auditoria, em vez de entrar diretamente nos registos.">When an extraction isn't confident, it goes to a review screen with an audit trail instead of straight into the records.</p>
+          <p class="from"><span data-pt="Em">In</span> <a href="work/ledgerdrop.html">LedgerDrop</a></p>
+        </div>
+        <div class="principle" data-reveal>
+          <span class="no">03</span>
+          <h3 data-pt="As respostas mostram a fonte">Answers show their sources</h3>
+          <p data-pt="O assistente só responde com base nos excertos recuperados, e cada citação mostra o texto de onde veio.">The assistant only answers from the passages it retrieved, and every citation shows the text it came from.</p>
+          <p class="from"><span data-pt="Em">In</span> <a href="work/paper-assistant.html" data-pt="Assistente de artigos científicos">Research Paper Assistant</a></p>
+        </div>
+        <div class="principle" data-reveal="2">
+          <span class="no">04</span>
+          <h3 data-pt="Só está feito quando está online">Done means deployed</h3>
+          <p data-pt="Migrações, backups e CI onde fazem diferença — e uma demo online que qualquer pessoa pode abrir.">Migrations, backups and CI where they matter — and a live demo anyone can open.</p>
+          <p class="from"><span data-pt="Em">In</span> <a href="work/bookmatch.html">BookMatch</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA ============ -->
+  <section class="cta" id="contact" data-shape="moon">
+    <div class="wrap">
+      <div class="eyebrow" data-reveal><span class="idx">05 —</span> <span data-pt="Contacto">Contact</span></div>
+      <h2 class="h2 two-tone" data-reveal="2" style="margin-top:26px"><span data-pt="Procuras um programador">Looking for a junior</span><br><span class="soft" data-pt="full stack júnior?">full stack developer?</span></h2>
+      <p class="sub" data-reveal="3" style="margin-top:24px;color:var(--muted);font-size:18px" data-pt="Estou no Porto e disponível de imediato.">I'm based in Porto and available immediately.</p>
+      <div class="row" data-reveal="3">
+        <a class="btn btn-glow" href="contact.html"><span data-pt="Fala comigo">Talk to me</span> <span class="arrow" aria-hidden="true">→</span></a>
+        <button class="copy" type="button" data-copy="lubetzkyben@gmail.com"><span class="lbl">lubetzkyben@gmail.com</span> <span aria-hidden="true">⧉</span></button>
+        <a class="btn-text btn" href="uploads/resume.pdf" target="_blank" rel="noopener"><span data-pt="Currículo (PDF)">Résumé (PDF)</span> <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>© 2026 Ben Lubetzky</span>
-    <span>Porto, Portugal</span>
+    <span>© 2026 Ben Lubetzky · Porto</span>
+    <nav aria-label="Footer" data-pt-aria-label="Rodapé">
+      <a href="https://github.com/BenLubetzky" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/ben-lubetzky" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="contact.html" data-pt="Contacto">Contact</a>
+    </nav>
+    <span class="mono" data-pt="HTML, CSS e um canvas · sem analytics">HTML, CSS and one canvas · no analytics</span>
   </div>
 </footer>
 
-<script>
-  const header = document.querySelector(".site-header");
-  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-</script>
+<script src="site.js"></script>
+<script src="bg.js"></script>
 </body>
 </html>

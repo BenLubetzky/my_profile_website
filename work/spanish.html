@@ -3,103 +3,136 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Spanish Learning Website — Ben Lubetzky</title>
-<meta name="description" content="Spanish Learning Website: a spaced-repetition vocabulary trainer built as a static web app.">
+<title data-pt="Site para aprender espanhol — Ben Lubetzky">Spanish Learning Website — Ben Lubetzky</title>
+<meta name="description" content="Spanish Learning Website: a flashcard app with typed answers, pronunciation and progress saved in the browser.">
+<meta name="theme-color" content="#050a07">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body data-base="../">
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="../index.html">Ben Lubetzky</a>
-    <nav class="nav" aria-label="Main">
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#skills" class="hide-sm">Skills</a>
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#contact" class="hide-sm">Contact</a>
-      <a href="../uploads/resume.pdf" target="_blank" rel="noopener" class="nav-cta">Résumé ↗</a>
+  <div class="bar">
+    <a class="pill brand brand-pill" href="../index.html" aria-label="Ben Lubetzky, home"><span class="brand-mark">BL</span><span class="brand-name">Ben Lubetzky</span></a>
+    <nav class="pill nav" aria-label="Main" data-pt-aria-label="Principal">
+      <a href="../index.html#story" data-pt="Percurso">Story</a>
+      <a href="../index.html#stack">Stack</a>
+      <a href="../index.html#work" class="active" data-pt="Projetos">Work</a>
+      <a href="../index.html#principles" data-pt="Princípios">Principles</a>
+      <a href="../contact.html" data-pt="Contacto">Contact</a>
     </nav>
+    <div class="pill tools">
+      <button class="icon-btn" type="button" data-search aria-label="Search" data-pt-aria-label="Pesquisar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span class="kbd" data-mod>Ctrl K</span>
+      </button>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+      <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+    <a class="pill cta-pill" href="../contact.html"><span data-pt="Fala comigo">Talk to me</span><span class="dot pulse" aria-hidden="true"></span></a>
   </div>
 </header>
 
-<main>
+<div class="drawer" aria-label="Menu">
+  <button class="icon-btn close" type="button" aria-label="Close menu" data-pt-aria-label="Fechar menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <nav>
+    <a href="../index.html#story" data-pt="Percurso">Story</a>
+    <a href="../index.html#stack">Stack</a>
+    <a href="../index.html#work" data-pt="Projetos">Work</a>
+    <a href="../index.html#principles" data-pt="Princípios">Principles</a>
+    <a href="../contact.html" data-pt="Contacto">Contact</a>
+    <a href="../uploads/resume.pdf" target="_blank" rel="noopener" data-pt="Currículo ↗">Résumé ↗</a>
+  </nav>
+</div>
+
+<main data-shape="sprout">
   <section class="case-hero">
-    <div class="wrap rise">
-      <a class="back" href="../index.html#work">← All work</a>
-      <h1>Spanish Learning Website</h1>
-      <p class="lede">A flashcard app for learning Spanish vocabulary, with typed answers in both directions, pronunciation, and progress saved in the browser.</p>
-      <dl class="facts">
-        <div><dt>Role</dt><dd>Frontend developer</dd></div>
-        <div><dt>Team</dt><dd>Solo</dd></div>
-        <div><dt>Status</dt><dd>Complete</dd></div>
-        <div><dt>Links</dt><dd><a href="https://github.com/BenLubetzky/Spanish-Learning-Website" target="_blank" rel="noopener">Code ↗</a></dd></div>
+    <div class="wrap">
+      <a class="back" href="../index.html#work" data-reveal>← <span data-pt="Todos os projetos">All work</span></a>
+      <div class="eyebrow" data-reveal><span class="idx">05 —</span> <span data-pt="Frontend · App web">Frontend · Web app</span></div>
+      <h1 data-reveal="2" data-pt="Site para aprender espanhol">Spanish Learning Website</h1>
+      <p data-reveal="3" class="lede" data-pt="Uma app de flashcards para aprender vocabulário de espanhol, com respostas escritas nos dois sentidos, pronúncia e progresso guardado no browser.">A flashcard app for learning Spanish vocabulary, with typed answers in both directions, pronunciation, and progress saved in the browser.</p>
+      <dl class="facts" data-reveal="3">
+        <div><dt data-pt="Função">Role</dt><dd><span data-pt="Programador frontend">Frontend developer</span></dd></div>
+        <div><dt data-pt="Equipa">Team</dt><dd><span data-pt="Sozinho">Solo</span></dd></div>
+        <div><dt data-pt="Estado">Status</dt><dd><span data-pt="Concluído">Complete</span></dd></div>
+        <div><dt data-pt="Links">Links</dt><dd><a href="https://github.com/BenLubetzky/Spanish-Learning-Website" target="_blank" rel="noopener"><span data-pt="Código ↗">Code ↗</span></a></dd></div>
       </dl>
     </div>
   </section>
 
   <div class="wrap">
-    <figure class="case-figure rise d1">
-      <div class="shot"><img src="../assets/web/spanish-study.webp" alt="Study session screen" width="1600" height="762"></div>
-      <figcaption>Study session: type the translation, switch direction between ES→EN and EN→ES, reveal the card, or play the pronunciation.</figcaption>
+    <figure class="case-figure" data-reveal="2">
+      <div class="browser"><div class="chrome"><i></i><i></i><i></i><span>spanish · study</span></div><img src="../assets/web/spanish-study.webp" alt="Study session screen" width="1600" height="762"></div>
+      <figcaption data-pt="Sessão de estudo: escreve a tradução, muda o sentido entre ES→EN e EN→ES, revela o cartão ou ouve a pronúncia.">Study session: type the translation, switch direction between ES→EN and EN→ES, reveal the card, or play the pronunciation.</figcaption>
     </figure>
 
     <div class="case-body">
-      <section class="case-section">
-        <h2>Overview</h2>
+      <section class="case-section" data-reveal>
+        <h2><span class="idx">01</span><span data-pt="Visão geral">Overview</span></h2>
         <ul class="points">
-          <li>Words and sentences are organised in decks. You study by typing the translation, Spanish to English or English to Spanish, and cards come back for review over time.</li>
-          <li>A progress page shows daily reviews and your streak.</li>
+          <li data-pt="As palavras e frases estão organizadas em baralhos. Estudas escrevendo a tradução, de espanhol para inglês ou de inglês para espanhol, e os cartões voltam para revisão ao longo do tempo.">Words and sentences are organised in decks. You study by typing the translation, Spanish to English or English to Spanish, and cards come back for review over time.</li>
+          <li data-pt="Uma página de progresso mostra as revisões diárias e a tua sequência de dias.">A progress page shows daily reviews and your streak.</li>
         </ul>
       </section>
-      <section class="case-section">
-        <h2>What I built</h2>
+      <section class="case-section" data-reveal>
+        <h2><span class="idx">02</span><span data-pt="O que construí">What I built</span></h2>
         <ul class="points">
-          <li>Four screens: decks, study, progress and settings.</li>
-          <li>Pronunciation using the browser's built-in speech synthesis.</li>
-          <li>Saving everything in the browser, with CSV import and JSON backup. There's no backend.</li>
+          <li data-pt="Quatro ecrãs: baralhos, estudo, progresso e definições.">Four screens: decks, study, progress and settings.</li>
+          <li data-pt="Pronúncia com a síntese de voz incorporada no browser.">Pronunciation using the browser's built-in speech synthesis.</li>
+          <li data-pt="Tudo guardado no browser, com importação de CSV e backup em JSON. Não há backend.">Saving everything in the browser, with CSV import and JSON backup. There's no backend.</li>
         </ul>
       </section>
-      <section class="case-section">
-        <h2>Stack</h2>
-        <ul class="stack-list">
-          <li>JavaScript</li><li>HTML</li><li>CSS</li><li>Web Speech API</li><li>Local storage</li>
-        </ul>
+      <section class="case-section" data-reveal>
+        <h2><span class="idx">03</span>Stack</h2>
+        <ul class="chips"><li class="chip">JavaScript</li><li class="chip">HTML</li><li class="chip">CSS</li><li class="chip">Web Speech API</li><li class="chip">Local storage</li></ul>
       </section>
     </div>
 
     <div class="gallery">
-    <figure class="case-figure">
-      <div class="shot"><img src="../assets/web/spanish-decks.webp" alt="Deck picker screen" loading="lazy" width="1600" height="662"></div>
-      <figcaption>Deck picker and card preview: word or sentence on the front, translation on the back.</figcaption>
+    <figure class="case-figure" data-reveal>
+      <div class="browser"><div class="chrome"><i></i><i></i><i></i><span>spanish · decks</span></div><img src="../assets/web/spanish-decks.webp" alt="Deck picker screen" width="1600" height="662" loading="lazy"></div>
+      <figcaption data-pt="Escolha de baralho e pré-visualização do cartão: palavra ou frase à frente, tradução atrás.">Deck picker and card preview: word or sentence on the front, translation on the back.</figcaption>
     </figure>
-    <figure class="case-figure">
-      <div class="shot"><img src="../assets/web/spanish-progress.webp" alt="Progress screen" loading="lazy" width="1600" height="754"></div>
-      <figcaption>Progress: cards reviewed today, the daily target, the current streak, and what's due in each deck.</figcaption>
+    <figure class="case-figure" data-reveal>
+      <div class="browser"><div class="chrome"><i></i><i></i><i></i><span>spanish · progress</span></div><img src="../assets/web/spanish-progress.webp" alt="Progress screen" width="1600" height="754" loading="lazy"></div>
+      <figcaption data-pt="Progresso: cartões revistos hoje, o objetivo diário, a sequência atual e o que falta rever em cada baralho.">Progress: cards reviewed today, the daily target, the current streak, and what's due in each deck.</figcaption>
     </figure>
-    <figure class="case-figure">
-      <div class="shot"><img src="../assets/web/spanish-settings.webp" alt="Settings screen" loading="lazy" width="1600" height="759"></div>
-      <figcaption>Settings: appearance, daily target and pronunciation voice, plus CSV import and JSON backup.</figcaption>
+    <figure class="case-figure" data-reveal>
+      <div class="browser"><div class="chrome"><i></i><i></i><i></i><span>spanish · settings</span></div><img src="../assets/web/spanish-settings.webp" alt="Settings screen" width="1600" height="759" loading="lazy"></div>
+      <figcaption data-pt="Definições: aparência, objetivo diário e voz da pronúncia, além de importação de CSV e backup em JSON.">Settings: appearance, daily target and pronunciation voice, plus CSV import and JSON backup.</figcaption>
     </figure>
     </div>
-    <nav class="next" aria-label="Next project">
-      <a class="back" href="../index.html#work" style="margin: 0;">← All work</a>
-      <div><span class="label">Next project</span><a class="title" href="bookmatch.html">BookMatch →</a></div>
+    <nav class="next" aria-label="Next project" data-pt-aria-label="Próximo projeto">
+      <a class="back" href="../index.html#work">← <span data-pt="Todos os projetos">All work</span></a>
+      <div><span class="label" data-pt="Próximo projeto">Next project</span><a class="title" href="bookmatch.html">BookMatch →</a></div>
     </nav>
   </div>
 </main>
 
 <footer class="site-footer">
-  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:lubetzkyben@gmail.com">lubetzkyben@gmail.com</a></div>
+  <div class="wrap">
+    <span>© 2026 Ben Lubetzky · Porto</span>
+    <nav aria-label="Footer" data-pt-aria-label="Rodapé">
+      <a href="https://github.com/BenLubetzky" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/ben-lubetzky" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../contact.html" data-pt="Contacto">Contact</a>
+    </nav>
+    <a href="mailto:lubetzkyben@gmail.com">lubetzkyben@gmail.com</a>
+  </div>
 </footer>
 
-<script>
-  const header = document.querySelector(".site-header");
-  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-</script>
+<script src="../site.js"></script>
+<script src="../bg.js"></script>
 </body>
 </html>

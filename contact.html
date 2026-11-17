@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-pt="Contacto — Ben Lubetzky">Contact — Ben Lubetzky</title>
+<meta name="description" content="Get in touch with Ben Lubetzky, junior full stack developer in Porto." data-pt-content="Fala com Ben Lubetzky, programador full stack júnior no Porto.">
+<meta name="theme-color" content="#050a07">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-base="">
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="bar">
+    <a class="pill brand brand-pill" href="index.html" aria-label="Ben Lubetzky, home"><span class="brand-mark">BL</span><span class="brand-name">Ben Lubetzky</span></a>
+    <nav class="pill nav" aria-label="Main" data-pt-aria-label="Principal">
+      <a href="index.html#story" data-pt="Percurso">Story</a>
+      <a href="index.html#stack">Stack</a>
+      <a href="index.html#work" data-pt="Projetos">Work</a>
+      <a href="index.html#principles" data-pt="Princípios">Principles</a>
+      <a href="contact.html" class="active" aria-current="page" data-pt="Contacto">Contact</a>
+    </nav>
+    <div class="pill tools">
+      <button class="icon-btn" type="button" data-search aria-label="Search" data-pt-aria-label="Pesquisar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span class="kbd" data-mod>Ctrl K</span>
+      </button>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+      <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+    <a class="pill cta-pill" href="#message"><span data-pt="Fala comigo">Talk to me</span><span class="dot pulse" aria-hidden="true"></span></a>
+  </div>
+</header>
+
+<div class="drawer" aria-label="Menu">
+  <button class="icon-btn close" type="button" aria-label="Close menu" data-pt-aria-label="Fechar menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <nav>
+    <a href="index.html#story" data-pt="Percurso">Story</a>
+    <a href="index.html#stack">Stack</a>
+    <a href="index.html#work" data-pt="Projetos">Work</a>
+    <a href="index.html#principles" data-pt="Princípios">Principles</a>
+    <a href="contact.html" data-pt="Contacto">Contact</a>
+    <a href="uploads/resume.pdf" target="_blank" rel="noopener" data-pt="Currículo ↗">Résumé ↗</a>
+  </nav>
+</div>
+
+<main data-shape="moon">
+  <section class="contact-hero">
+    <div class="wrap">
+      <span class="eyebrow" data-reveal><span class="dot ok pulse" aria-hidden="true"></span><span data-pt="Disponível de imediato · Porto">Available immediately · Porto</span></span>
+      <h1 data-reveal="2" style="margin-top:28px"><span data-pt="Vamos">Let's</span><span class="l2" data-pt="falar.">talk.</span></h1>
+      <p class="lede" data-reveal="3" data-pt="Procuro uma posição como programador full stack júnior. Se tens uma vaga, um projeto ou só uma pergunta sobre o meu trabalho, escreve-me — o email é o caminho mais rápido.">I'm looking for a junior full stack role. If you have an opening, a project, or just a question about my work, write to me — email is the fastest way to reach me.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="contact-grid">
+      <form class="panel" id="contact-form" novalidate data-reveal>
+        <a id="message"></a>
+        <div class="eyebrow"><span class="idx">01 —</span> <span data-pt="Mensagem">Message</span></div>
+        <h2 data-pt="Escreve-me uma mensagem">Write me a message</h2>
+
+        <div class="field">
+          <span class="lbl" id="reason-lbl" data-pt="Sobre">About</span>
+          <div class="reasons" role="radiogroup" aria-labelledby="reason-lbl">
+            <label><input type="radio" name="reason" value="job" checked><span data-pt="Uma vaga">A job opening</span></label>
+            <label><input type="radio" name="reason" value="project"><span data-pt="Um projeto">A project</span></label>
+            <label><input type="radio" name="reason" value="question"><span data-pt="Uma pergunta">A question</span></label>
+            <label><input type="radio" name="reason" value="hi"><span data-pt="Só dizer olá">Just saying hi</span></label>
+          </div>
+        </div>
+        <div class="two">
+          <div class="field">
+            <label for="f-name" data-pt="Nome">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Jane Doe" data-pt-placeholder="Maria Silva">
+          </div>
+          <div class="field">
+            <label for="f-email" data-pt="O teu email">Your email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" data-pt-placeholder="maria@empresa.pt">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-msg" data-pt="Mensagem">Message</label>
+          <textarea id="f-msg" name="message" required placeholder="Hi Ben, we're hiring a junior developer for…" data-pt-placeholder="Olá Ben, estamos a contratar um programador júnior para…"></textarea>
+        </div>
+        <div class="form-foot">
+          <button class="btn btn-glow" type="submit"><span data-pt="Abrir no meu email">Open in my email app</span> <span class="arrow" aria-hidden="true">↗</span></button>
+          <p class="form-note" data-pt="Isto abre a tua app de email com a mensagem já escrita. Nada é enviado a partir desta página.">This opens your email app with the message filled in. Nothing is sent from this page.</p>
+        </div>
+        <p class="form-error" role="alert"></p>
+      </form>
+
+      <aside class="panel" data-reveal="2">
+        <div class="eyebrow"><span class="idx">02 —</span> <span data-pt="Diretamente">Direct</span></div>
+        <h2 data-pt="Ou fala comigo diretamente">Or reach me directly</h2>
+        <ul class="channels">
+          <li><div class="row"><span class="k">Email</span><a class="v" href="mailto:lubetzkyben@gmail.com">lubetzkyben@gmail.com</a><button type="button" data-copy="lubetzkyben@gmail.com"><span class="lbl" data-pt="Copiar">Copy</span></button></div></li>
+          <li><a href="tel:+351937217775"><span class="k" data-pt="Telefone">Phone</span><span class="v">+351 937 217 775</span><span class="g">↗</span></a></li>
+          <li><a href="https://linkedin.com/in/ben-lubetzky" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">in/ben-lubetzky</span><span class="g">↗</span></a></li>
+          <li><a href="https://github.com/BenLubetzky" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">BenLubetzky</span><span class="g">↗</span></a></li>
+          <li><a href="uploads/resume.pdf" target="_blank" rel="noopener"><span class="k" data-pt="Currículo">Résumé</span><span class="v">resume.pdf</span><span class="g">↗</span></a></li>
+        </ul>
+        <dl class="mini-cells">
+          <div><dt data-pt="Baseado em">Based in</dt><dd>Porto, Portugal</dd></div>
+          <div><dt data-pt="Fuso horário">Time zone</dt><dd data-pt="Hora de Lisboa (WET)">Lisbon time (WET)</dd></div>
+          <div><dt data-pt="Disponibilidade">Availability</dt><dd data-pt="Imediata">Immediately</dd></div>
+          <div><dt data-pt="Entrevistas em">Interviews in</dt><dd data-pt="Inglês, português, hebraico">English, Portuguese, Hebrew</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Ben Lubetzky · Porto</span>
+    <nav aria-label="Footer" data-pt-aria-label="Rodapé">
+      <a href="https://github.com/BenLubetzky" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/ben-lubetzky" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="index.html#work" data-pt="Projetos">Work</a>
+    </nav>
+    <span class="mono" data-pt="HTML, CSS e um canvas · sem analytics">HTML, CSS and one canvas · no analytics</span>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script src="bg.js"></script>
+</body>
+</html>

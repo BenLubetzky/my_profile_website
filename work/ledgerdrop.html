@@ -3,89 +3,122 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LedgerDrop — Ben Lubetzky</title>
-<meta name="description" content="LedgerDrop: invoice processing with human review, built with FastAPI, Next.js and the OpenAI API.">
+<title data-pt="LedgerDrop — Ben Lubetzky">LedgerDrop — Ben Lubetzky</title>
+<meta name="description" content="LedgerDrop: invoice data extraction with FastAPI, PostgreSQL, Next.js and the OpenAI API, with a human review workflow.">
+<meta name="theme-color" content="#050a07">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
 </head>
-<body>
+<body data-base="../">
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
 <header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="../index.html">Ben Lubetzky</a>
-    <nav class="nav" aria-label="Main">
-      <a href="../index.html#work">Work</a>
-      <a href="../index.html#skills" class="hide-sm">Skills</a>
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#contact" class="hide-sm">Contact</a>
-      <a href="../uploads/resume.pdf" target="_blank" rel="noopener" class="nav-cta">Résumé ↗</a>
+  <div class="bar">
+    <a class="pill brand brand-pill" href="../index.html" aria-label="Ben Lubetzky, home"><span class="brand-mark">BL</span><span class="brand-name">Ben Lubetzky</span></a>
+    <nav class="pill nav" aria-label="Main" data-pt-aria-label="Principal">
+      <a href="../index.html#story" data-pt="Percurso">Story</a>
+      <a href="../index.html#stack">Stack</a>
+      <a href="../index.html#work" class="active" data-pt="Projetos">Work</a>
+      <a href="../index.html#principles" data-pt="Princípios">Principles</a>
+      <a href="../contact.html" data-pt="Contacto">Contact</a>
     </nav>
+    <div class="pill tools">
+      <button class="icon-btn" type="button" data-search aria-label="Search" data-pt-aria-label="Pesquisar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <span class="kbd" data-mod>Ctrl K</span>
+      </button>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="pt" aria-pressed="false">PT</button>
+      </div>
+      <button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+    <a class="pill cta-pill" href="../contact.html"><span data-pt="Fala comigo">Talk to me</span><span class="dot pulse" aria-hidden="true"></span></a>
   </div>
 </header>
 
-<main>
+<div class="drawer" aria-label="Menu">
+  <button class="icon-btn close" type="button" aria-label="Close menu" data-pt-aria-label="Fechar menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <nav>
+    <a href="../index.html#story" data-pt="Percurso">Story</a>
+    <a href="../index.html#stack">Stack</a>
+    <a href="../index.html#work" data-pt="Projetos">Work</a>
+    <a href="../index.html#principles" data-pt="Princípios">Principles</a>
+    <a href="../contact.html" data-pt="Contacto">Contact</a>
+    <a href="../uploads/resume.pdf" target="_blank" rel="noopener" data-pt="Currículo ↗">Résumé ↗</a>
+  </nav>
+</div>
+
+<main data-shape="leaf">
   <section class="case-hero">
-    <div class="wrap rise">
-      <a class="back" href="../index.html#work">← All work</a>
-      <h1>LedgerDrop</h1>
-      <p class="lede">An invoice-processing app. It extracts structured data from uploaded PDF invoices and checks it automatically; results it isn't sure about go to a person for review.</p>
-      <dl class="facts">
-        <div><dt>Role</dt><dd>Full stack developer</dd></div>
-        <div><dt>Team</dt><dd>Solo</dd></div>
-        <div><dt>Status</dt><dd>Live</dd></div>
-        <div><dt>Links</dt><dd><a href="https://ledgerdrop-frontend-staging.onrender.com/" target="_blank" rel="noopener">Live app ↗</a> · <a href="https://github.com/BenLubetzky/LedgeDrop" target="_blank" rel="noopener">Code ↗</a></dd></div>
+    <div class="wrap">
+      <a class="back" href="../index.html#work" data-reveal>← <span data-pt="Todos os projetos">All work</span></a>
+      <div class="eyebrow" data-reveal><span class="idx">02 —</span> <span data-pt="Full stack · IA">Full stack · AI</span></div>
+      <h1 data-reveal="2">LedgerDrop</h1>
+      <p data-reveal="3" class="lede" data-pt="Uma app de processamento de faturas. Extrai dados estruturados de faturas em PDF e verifica-os automaticamente; os resultados de que não tem certeza vão para revisão por uma pessoa.">An invoice-processing app. It extracts structured data from uploaded PDF invoices and checks it automatically; results it isn't sure about go to a person for review.</p>
+      <dl class="facts" data-reveal="3">
+        <div><dt data-pt="Função">Role</dt><dd><span data-pt="Programador full stack">Full stack developer</span></dd></div>
+        <div><dt data-pt="Equipa">Team</dt><dd><span data-pt="Sozinho">Solo</span></dd></div>
+        <div><dt data-pt="Estado">Status</dt><dd><span data-pt="Online">Live</span></dd></div>
+        <div><dt data-pt="Links">Links</dt><dd><a href="https://ledgerdrop-frontend-staging.onrender.com/" target="_blank" rel="noopener"><span data-pt="App online ↗">Live app ↗</span></a> · <a href="https://github.com/BenLubetzky/LedgeDrop" target="_blank" rel="noopener"><span data-pt="Código ↗">Code ↗</span></a></dd></div>
       </dl>
     </div>
   </section>
 
   <div class="wrap">
-    <figure class="case-figure rise d1">
-      <div class="shot"><img src="../assets/web/ledgerdrop-upload.webp" alt="LedgerDrop invoice workspace" width="1500" height="895"></div>
-      <figcaption>The upload page: drop an invoice PDF on the left, recent documents on the right, and a link to the review queue at the top.</figcaption>
+    <figure class="case-figure" data-reveal="2">
+      <div class="browser"><div class="chrome"><i></i><i></i><i></i><span>ledgerdrop · onrender.com</span></div><img src="../assets/web/ledgerdrop-upload.webp" alt="LedgerDrop invoice workspace" width="1500" height="895"></div>
+      <figcaption data-pt="A página de upload: larga uma fatura em PDF à esquerda, documentos recentes à direita e um link para a fila de revisão no topo.">The upload page: drop an invoice PDF on the left, recent documents on the right, and a link to the review queue at the top.</figcaption>
     </figure>
 
     <div class="case-body">
-      <section class="case-section">
-        <h2>Overview</h2>
+      <section class="case-section" data-reveal>
+        <h2><span class="idx">01</span><span data-pt="Visão geral">Overview</span></h2>
         <ul class="points">
-          <li>You upload an invoice PDF, the backend extracts the data from it and validates it.</li>
-          <li>Invoices that pass go through; uncertain ones go to a review screen, where the data can be approved, rejected or corrected.</li>
+          <li data-pt="Carregas uma fatura em PDF, e o backend extrai os dados e valida-os.">You upload an invoice PDF, the backend extracts the data from it and validates it.</li>
+          <li data-pt="As faturas que passam seguem em frente; as incertas vão para um ecrã de revisão, onde os dados podem ser aprovados, rejeitados ou corrigidos.">Invoices that pass go through; uncertain ones go to a review screen, where the data can be approved, rejected or corrected.</li>
         </ul>
       </section>
-      <section class="case-section">
-        <h2>What I built</h2>
+      <section class="case-section" data-reveal>
+        <h2><span class="idx">02</span><span data-pt="O que construí">What I built</span></h2>
         <ul class="points">
-          <li>An async FastAPI pipeline that processes the uploaded invoices, using the OpenAI API for the extraction.</li>
-          <li>A Next.js review screen for approving, rejecting or correcting the data, with an audit trail of the changes.</li>
-          <li>PostgreSQL with SQLAlchemy for the data, Cloudflare R2 for file storage, and deployment with Docker on Render.</li>
+          <li data-pt="Um pipeline assíncrono em FastAPI que processa as faturas carregadas, usando a API da OpenAI para a extração.">An async FastAPI pipeline that processes the uploaded invoices, using the OpenAI API for the extraction.</li>
+          <li data-pt="Um ecrã de revisão em Next.js para aprovar, rejeitar ou corrigir os dados, com histórico de auditoria das alterações.">A Next.js review screen for approving, rejecting or correcting the data, with an audit trail of the changes.</li>
+          <li data-pt="PostgreSQL com SQLAlchemy para os dados, Cloudflare R2 para os ficheiros e publicação com Docker no Render.">PostgreSQL with SQLAlchemy for the data, Cloudflare R2 for file storage, and deployment with Docker on Render.</li>
         </ul>
       </section>
-      <section class="case-section">
-        <h2>Stack</h2>
-        <ul class="stack-list">
-          <li>FastAPI</li><li>SQLAlchemy</li><li>PostgreSQL</li><li>Next.js</li><li>TypeScript</li><li>Docker</li><li>Render</li><li>Cloudflare R2</li><li>OpenAI API</li>
-        </ul>
+      <section class="case-section" data-reveal>
+        <h2><span class="idx">03</span>Stack</h2>
+        <ul class="chips"><li class="chip">FastAPI</li><li class="chip">SQLAlchemy</li><li class="chip">PostgreSQL</li><li class="chip">Next.js</li><li class="chip">TypeScript</li><li class="chip">Docker</li><li class="chip">Render</li><li class="chip">Cloudflare R2</li><li class="chip">OpenAI API</li></ul>
       </section>
     </div>
 
-    <nav class="next" aria-label="Next project">
-      <a class="back" href="../index.html#work" style="margin: 0;">← All work</a>
-      <div><span class="label">Next project</span><a class="title" href="support-agent.html">Customer Support Agent →</a></div>
+    <nav class="next" aria-label="Next project" data-pt-aria-label="Próximo projeto">
+      <a class="back" href="../index.html#work">← <span data-pt="Todos os projetos">All work</span></a>
+      <div><span class="label" data-pt="Próximo projeto">Next project</span><a class="title" href="support-agent.html" data-pt="Agente de apoio ao cliente →">Customer Support Agent →</a></div>
     </nav>
   </div>
 </main>
 
 <footer class="site-footer">
-  <div class="wrap"><span>© 2026 Ben Lubetzky</span><a href="mailto:lubetzkyben@gmail.com">lubetzkyben@gmail.com</a></div>
+  <div class="wrap">
+    <span>© 2026 Ben Lubetzky · Porto</span>
+    <nav aria-label="Footer" data-pt-aria-label="Rodapé">
+      <a href="https://github.com/BenLubetzky" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/ben-lubetzky" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="../contact.html" data-pt="Contacto">Contact</a>
+    </nav>
+    <a href="mailto:lubetzkyben@gmail.com">lubetzkyben@gmail.com</a>
+  </div>
 </footer>
 
-<script>
-  const header = document.querySelector(".site-header");
-  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 8);
-  onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
-</script>
+<script src="../site.js"></script>
+<script src="../bg.js"></script>
 </body>
 </html>
