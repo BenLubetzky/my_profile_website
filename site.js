@@ -197,10 +197,9 @@
       g: T("Projects", "Projetos"), ic: p.url.startsWith("http") ? "GH" : "→", t: (lang === "pt" && p.namePt) || p.name, d: p.cat[lang], url: p.url, ext: p.url.startsWith("http"), kw: p.kw,
     }));
     [
-      ["story", T("Story", "Percurso"), T("How I got here", "Como cheguei aqui"), "about education porto university fcup open university percurso educação"],
-      ["stack", T("Stack", "Stack"), T("Languages, frameworks and tools", "Linguagens, frameworks e ferramentas"), "skills languages frameworks competências"],
       ["work", T("Work", "Projetos"), T("Featured projects and the full list", "Projetos em destaque e lista completa"), "projects portfolio projetos"],
-      ["principles", T("Principles", "Princípios"), T("How I build things", "Como construo"), "values approach"],
+      ["stack", T("Stack", "Stack"), T("Languages, frameworks and tools", "Linguagens, frameworks e ferramentas"), "skills languages frameworks competências"],
+      ["about", T("About me", "Sobre mim"), T("Bio and education", "Biografia e formação"), "about bio education porto university fcup sobre formação"],
     ].forEach(([id, t, d, kw]) => list.push({ g: T("On this site", "Neste site"), ic: "#", t, d, url: sec(id), kw }));
     list.push({ g: T("On this site", "Neste site"), ic: "@", t: T("Contact", "Contacto"), d: T("Send me a message", "Envia-me uma mensagem"), url: "contact.html", kw: "contact email talk hire message contacto falar" });
     [
